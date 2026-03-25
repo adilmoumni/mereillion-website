@@ -1,0 +1,149 @@
+%!Adobe-FontList 1.24
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Volumes/NO NAME/Stage/MARELION copy Folder/Document fonts/AdobeFnt24.lst
+FileLength:3213
+FileModTime:792586844
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Volumes/NO NAME/Stage/MARELION copy Folder/Document fonts/AdobeFnt25.lst
+FileLength:3213
+FileModTime:792070176
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:CabinetGrotesk-Light
+FamilyName:Cabinet Grotesk
+StyleName:Light
+MenuName:Cabinet Grotesk Light
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:Cabinet Grotesk Light
+WritingScript:Roman
+OutlineFileName:/Volumes/NO NAME/Stage/MARELION copy Folder/Document fonts/CabinetGrotesk-Light.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:37832
+FileModTime:767633054
+NameArray:0,Win,1,Cabinet Grotesk Light
+NameArray:0,Win,16,Cabinet Grotesk
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:CabinetGrotesk-Medium
+FamilyName:Cabinet Grotesk
+StyleName:Medium
+MenuName:Cabinet Grotesk Medium
+StyleBits:0
+WeightClass:500
+WidthClass:5
+AngleClass:0
+FullName:Cabinet Grotesk Medium
+WritingScript:Roman
+OutlineFileName:/Volumes/NO NAME/Stage/MARELION copy Folder/Document fonts/CabinetGrotesk-Medium.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:37812
+FileModTime:767633054
+NameArray:0,Win,1,Cabinet Grotesk Medium
+NameArray:0,Win,16,Cabinet Grotesk
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:CabinetGrotesk-Regular
+FamilyName:Cabinet Grotesk
+StyleName:Regular
+MenuName:Cabinet Grotesk
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Cabinet Grotesk
+WritingScript:Roman
+OutlineFileName:/Volumes/NO NAME/Stage/MARELION copy Folder/Document fonts/CabinetGrotesk-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:37968
+FileModTime:767633054
+NameArray:0,Win,1,Cabinet Grotesk
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Jost-SemiBold
+FamilyName:Jost
+StyleName:SemiBold
+MenuName:Jost SemiBold
+StyleBits:0
+WeightClass:600
+WidthClass:5
+AngleClass:0
+FullName:Jost SemiBold
+WritingScript:Roman
+OutlineFileName:/Volumes/NO NAME/Stage/MARELION copy Folder/Document fonts/Jost-SemiBold.ttf
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:61648
+FileModTime:779220528
+NameArray:0,Win,1,Jost SemiBold
+NameArray:0,Win,16,Jost
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Jost-Regular
+FamilyName:Jost
+StyleName:Regular
+MenuName:Jost
+FamilyPrefix:JostRoman
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Jost Regular
+WritingScript:Roman
+OutlineFileName:/Volumes/NO NAME/Stage/MARELION copy Folder/Document fonts/Jost-VariableFont_wght.ttf
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:TrueTypeVariableFont
+FileLength:134476
+FileModTime:779220528
+NameArray:0,Win,1,Jost
+%EndFont
+
