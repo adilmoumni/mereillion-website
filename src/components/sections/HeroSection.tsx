@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center">
+    <section className="relative flex min-h-[92svh] items-center md:min-h-screen">
       {/* Background Image Layer - Full Bleed */}
       <div className="absolute inset-0">
         <Image
@@ -14,39 +14,31 @@ const HeroSection = () => {
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-secondaryText/85 via-brand-secondaryText/60 to-brand-secondaryText/30" />
       </div>
 
       {/* Content Container - Constrained */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl pt-32">
-          <h1 
-            className="text-5xl md:text-7xl font-manrope font-semibold leading-[1.1] animate-fade-in"
-            style={{ color: '#F7F5F3' }}
-          >
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-container-gap">
+        <div className="max-w-4xl pt-24 sm:pt-28 md:pt-32">
+          <h1 className="animate-fade-in text-header-1 font-medium leading-[1.05] text-brand-background">
             Sourcing technique et solutions d&apos;ingénierie intégrées
           </h1>
-          <p 
-            className="mt-8 text-[22px] font-manrope font-medium max-w-2xl animate-fade-in-up leading-relaxed"
-            style={{ color: '#F7F5F3', opacity: 0.9 }}
-          >
+          <p className="animate-fade-in-up mt-title-subtitle max-w-2xl text-body leading-[1.35] text-brand-background/85">
             Sécurisation des choix techniques, conformité réglementaire et intégration maîtrisée de systèmes pour projets de construction et d&apos;industrie.
           </p>
           
-          <div className="mt-14 flex flex-col sm:flex-row gap-4 animate-fade-in-up">
+          <div className="animate-fade-in-up mt-card-gap flex flex-col gap-container-gap sm:flex-row">
             <Button 
-              variant="primary" 
+              variant="light" 
               size="lg" 
-              className="rounded-full font-manrope font-semibold text-[18px] hover:opacity-90 shadow-lg px-10"
-              style={{ backgroundColor: '#F7F5F3', color: '#1B6673' }}
+              className="border-brand-background/85"
             >
               Télécharger la brochure
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
-              className="rounded-full font-manrope font-semibold text-[18px] border-[#F7F5F3]/40 backdrop-blur-sm hover:bg-[#F7F5F3]/30 transition-all px-10"
-              style={{ backgroundColor: 'rgba(247, 245, 243, 0.2)', color: '#F7F5F3' }}
+              className="border-brand-background/45 bg-brand-background/12 text-brand-background backdrop-blur-xl shadow-[inset_0_1px_0_rgba(255,255,255,0.32),0_16px_30px_rgba(0,0,0,0.15)] hover:border-brand-background/70 hover:bg-brand-background/24 hover:text-brand-background"
             >
               Nous contacter
             </Button>

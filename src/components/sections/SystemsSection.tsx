@@ -1,162 +1,268 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import SectionWrapper from '../common/SectionWrapper';
 import Image from 'next/image';
 import Link from 'next/link';
+import { systemsFamilies } from '@/lib/systemsData';
 
-const systems = [
-  {
-    id: '01',
-    title: 'Mobilier & Agencement',
-    description: 'Aménagements intégrant ergonomie, résistance à l&apos;usage intensif et conformité aux exigences ERP...',
-    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop',
-    thumbnail: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=150&auto=format&fit=crop',
-  },
-  {
-    id: '02',
-    title: 'Décoration & Éclairage Architectural',
-    description: 'Systèmes d&apos;éclairage analysés selon performance lumineuse, confort visuel et conformité électrique.',
-    image: 'https://images.unsplash.com/photo-1507412893552-02f5ee29331f?q=80&w=2070&auto=format&fit=crop',
-    thumbnail: 'https://images.unsplash.com/photo-1507412893552-02f5ee29331f?q=80&w=150&auto=format&fit=crop',
-  },
-  {
-    id: '03',
-    title: 'Sols, Murs & Plafonds',
-    description: 'Aménagements intégrant ergonomie, résistance à l&apos;usage intensif et conformité aux exigences ERP.',
-    image: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=2070&auto=format&fit=crop',
-    thumbnail: 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=150&auto=format&fit=crop',
-  },
-  {
-    id: '04',
-    title: 'Sanitaires & Cuisines',
-    description: 'Aménagements intégrant ergonomie, résistance à l&apos;usage intensif et conformité aux exigences ERP...',
-    image: 'https://images.unsplash.com/photo-1556911220-e1502235853d?q=80&w=2070&auto=format&fit=crop',
-    thumbnail: 'https://images.unsplash.com/photo-1556911220-e1502235853d?q=80&w=150&auto=format&fit=crop',
-  },
-  {
-    id: '05',
-    title: 'Vitrages, Aluminium & Séparations',
-    description: 'Aménagements intégrant ergonomie, résistance à l&apos;usage intensif et conformité aux exigences ERP...',
-    image: 'https://images.unsplash.com/photo-1503387762-592be5a52680?q=80&w=2070&auto=format&fit=crop',
-    thumbnail: 'https://images.unsplash.com/photo-1503387762-592be5a52680?q=80&w=150&auto=format&fit=crop',
-  },
-];
+const MAX_VISIBLE_ROWS = 5;
+const LIST_ROW_HEIGHT = 124;
+
+const truncateDescription = (value: string, length = 96) => {
+  if (value.length <= length) return value;
+  return `${value.slice(0, length).trimEnd()}...`;
+};
 
 const SystemsSection = () => {
-  const [activeSystem, setActiveSystem] = useState(systems[2]); // Default to Sols, Murs & Plafonds
+  const [activeSystemIndex, setActiveSystemIndex] = useState(2);
+  const [activeMediaIndex, setActiveMediaIndex] = useState(0);
+  const [canScrollDown, setCanScrollDown] = useState(false);
+  const [canScrollUp, setCanScrollUp] = useState(false);
+  const listRef = useRef<HTMLDivElement | null>(null);
+  const itemRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const activeSystem = systemsFamilies[activeSystemIndex] ?? systemsFamilies[0];
+  const gallery = activeSystem?.gallery?.length ? activeSystem.gallery : activeSystem ? [activeSystem.image] : [];
+
+  const visibleRows = Math.min(MAX_VISIBLE_ROWS, systemsFamilies.length);
+  const listContainerHeight = useMemo(() => visibleRows * LIST_ROW_HEIGHT, [visibleRows]);
+
+  useEffect(() => {
+    setActiveMediaIndex(0);
+  }, [activeSystemIndex]);
+
+  useEffect(() => {
+    if (gallery.length <= 1) return;
+
+    const intervalId = window.setInterval(() => {
+      setActiveMediaIndex((previous) => (previous + 1) % gallery.length);
+    }, 4200);
+
+    return () => window.clearInterval(intervalId);
+  }, [gallery.length, activeSystem.id]);
+
+  const updateListState = useCallback(() => {
+    const list = listRef.current;
+    if (!list) return;
+
+    const maxScroll = Math.max(0, list.scrollHeight - list.clientHeight);
+    const nearBottom = list.scrollTop >= maxScroll - 3;
+    const nearTop = list.scrollTop <= 3;
+
+    setCanScrollDown(!nearBottom);
+    setCanScrollUp(!nearTop);
+
+    const listCenterY = list.scrollTop + list.clientHeight / 2;
+    let nearestIndex = 0;
+    let nearestDistance = Number.POSITIVE_INFINITY;
+
+    itemRefs.current.forEach((item, index) => {
+      if (!item) return;
+      const center = item.offsetTop + item.offsetHeight / 2;
+      const distance = Math.abs(center - listCenterY);
+
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestIndex = index;
+      }
+    });
+
+    setActiveSystemIndex((previous) => (previous === nearestIndex ? previous : nearestIndex));
+  }, []);
+
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+
+    updateListState();
+
+    const handleScroll = () => updateListState();
+    const handleResize = () => updateListState();
+
+    list.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      list.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [updateListState]);
+
+  const selectSystem = (index: number) => {
+    setActiveSystemIndex(index);
+    const row = itemRefs.current[index];
+    if (!row) return;
+
+    row.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'nearest',
+    });
+  };
+
+  const handleArrowToggle = () => {
+    const list = listRef.current;
+    if (!list) return;
+
+    if (canScrollDown) {
+      list.scrollBy({ top: LIST_ROW_HEIGHT, behavior: 'smooth' });
+      return;
+    }
+
+    if (canScrollUp) {
+      list.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
-    <div className="bg-primary text-white py-32 overflow-hidden">
-      <SectionWrapper as="div">
-        {/* Header Section from Mockup */}
-        <div className="flex justify-end mb-24">
-          <div className="max-w-xl text-right animate-fade-in">
-            <h2 className="text-h2 md:text-hero font-heading font-bold mb-6 leading-tight uppercase">
-              NOS FAMILLES DE SYSTÈMES
-            </h2>
-            <p className="text-body md:text-h3 opacity-70 font-body leading-relaxed">
-              Chaque famille est abordée comme un système à part entière, avec ses contraintes d&apos;usage, de normes et d&apos;exploitation.
-            </p>
+    <SectionWrapper id="systemes" as="div" className="overflow-hidden bg-brand-accent text-brand-background">
+      <div className="mb-section flex justify-end">
+        <div className="animate-fade-in max-w-xl text-right">
+          <h2 className="mb-title-subtitle text-[clamp(1.9rem,2.8vw,3.15rem)] font-medium uppercase leading-[1.12] text-brand-background">
+            NOS FAMILLES DE SYSTÈMES
+          </h2>
+          <p className="text-[clamp(0.98rem,1.04vw,1.08rem)] leading-[1.55] text-brand-background/72">
+            Chaque famille est abordée comme un système à part entière, avec ses contraintes d&apos;usage, de normes et
+            d&apos;exploitation.
+          </p>
+        </div>
+      </div>
+
+      <div className="grid items-start gap-card-gap lg:grid-cols-[0.9fr_1.1fr] lg:gap-section">
+        <div className="h-fit w-full lg:sticky lg:top-32">
+          <div className="animate-fade-in relative mb-title-subtitle aspect-[4/3.85] w-full overflow-hidden rounded-sm shadow-2xl">
+            <Image
+              src={gallery[activeMediaIndex] ?? activeSystem.image}
+              alt={activeSystem.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 42vw"
+            />
+
+            <div className="absolute bottom-8 left-8 right-8 flex gap-2">
+              {gallery.map((item, index) => (
+                <button
+                  key={`${activeSystem.id}-${item}`}
+                  type="button"
+                  onClick={() => setActiveMediaIndex(index)}
+                  aria-label={`Afficher le média ${index + 1} pour ${activeSystem.title}`}
+                  className={`h-1.5 flex-grow rounded-full transition-all duration-500 ${
+                    index === activeMediaIndex ? 'bg-brand-background' : 'bg-brand-background/28 hover:bg-brand-background/45'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="animate-fade-in-up space-y-container-gap">
+            <h3 className="text-[clamp(1.6rem,2.15vw,2.35rem)] font-medium leading-[1.2] text-brand-background">{activeSystem.title}</h3>
+            <p className="max-w-md text-[clamp(0.98rem,1.04vw,1.08rem)] leading-[1.55] text-brand-background/72">{activeSystem.description}</p>
+            <Link
+              href="/systemes"
+              className="inline-flex items-center border-b border-brand-background pb-1 text-button text-brand-background transition-all hover:opacity-100 hover:tracking-wide"
+            >
+              Voir les systèmes techniques
+              <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-32 items-start">
-          {/* Left Panel - Hero Visual */}
-          <div className="w-full lg:w-5/12 lg:sticky lg:top-32 h-fit">
-            <div className="relative aspect-[4/5] w-full rounded-sm overflow-hidden mb-12 shadow-2xl animate-fade-in">
-              <Image 
-                src={activeSystem.image} 
-                alt={activeSystem.title}
-                fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-              {/* Progress Stepper in Image */}
-              <div className="absolute bottom-8 left-8 right-8 flex gap-2">
-                {systems.map((s) => (
-                  <div 
-                    key={s.id}
-                    className={`h-1 flex-grow transition-all duration-500 rounded-full ${s.id === activeSystem.id ? 'bg-white' : 'bg-white/20'}`}
-                  />
-                ))}
-              </div>
-            </div>
-            
-            <div className="space-y-8 animate-fade-in-up">
-              <h3 className="text-h3 md:text-h2 font-bold mb-4">{activeSystem.title}</h3>
-              <p className="text-body opacity-70 leading-relaxed max-w-md">
-                {activeSystem.description}
-              </p>
-              <Link 
-                href="#" 
-                className="inline-flex items-center text-white border-b border-white pb-1 font-bold hover:opacity-100 transition-all hover:tracking-wide group"
-              >
-                Voir les systèmes techniques
-                <svg className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </Link>
-            </div>
-          </div>
+        <div className="relative w-full border-l border-brand-background/22">
+          <div
+            ref={listRef}
+            className="overflow-y-auto pr-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            style={{ maxHeight: `${listContainerHeight}px` }}
+          >
+            {systemsFamilies.map((system, index) => {
+              const isActive = index === activeSystemIndex;
 
-          {/* Right Column - Navigation Steppers */}
-          <div className="w-full lg:w-7/12 flex flex-col items-stretch border-l border-white/10">
-            {systems.map((system) => (
-              <button
-                key={system.id}
-                onClick={() => setActiveSystem(system)}
-                className={`group relative text-left py-10 px-12 border-b border-white/10 transition-all duration-500 flex items-center justify-between ${
-                  activeSystem.id === system.id 
-                    ? 'bg-white/5 border-l-4 border-l-white' 
-                    : 'hover:bg-white/5 border-l-4 border-l-transparent'
-                }`}
-              >
-                <div className="flex items-center gap-8">
-                  {/* Number and Line */}
-                  <div className="flex items-center gap-6 min-w-[100px]">
-                    <span className={`text-h3 font-heading font-medium transition-all duration-300 ${activeSystem.id === system.id ? 'opacity-100' : 'opacity-40'}`}>
+              return (
+                <button
+                  key={system.id}
+                  type="button"
+                  ref={(element) => {
+                    itemRefs.current[index] = element;
+                  }}
+                  onClick={() => selectSystem(index)}
+                  className={`group relative grid w-full grid-cols-[78px_minmax(0,1fr)_84px] items-center gap-3 border-b border-brand-background/15 px-4 py-3.5 text-left transition-all duration-400 md:grid-cols-[86px_minmax(0,1fr)_92px] md:px-5 ${
+                    isActive
+                      ? 'bg-[rgba(168,200,207,0.34)]'
+                      : 'bg-transparent hover:bg-[rgba(168,200,207,0.18)]'
+                  }`}
+                  style={{ minHeight: `${LIST_ROW_HEIGHT}px` }}
+                >
+                  <div className="flex min-w-[78px] items-center gap-2">
+                    <span
+                      className={`text-[clamp(1.3rem,1.55vw,1.75rem)] font-medium leading-none text-brand-background transition-opacity duration-300 ${
+                        isActive ? 'opacity-100' : 'opacity-65'
+                      }`}
+                    >
                       {system.id}
                     </span>
-                    <div className={`h-[1px] bg-white transition-all duration-700 ${activeSystem.id === system.id ? 'w-16 opacity-100' : 'w-8 opacity-20'}`} />
+                    <span
+                      className={`h-[1px] bg-brand-background transition-all duration-500 ${
+                        isActive ? 'w-16 opacity-100' : 'w-8 opacity-30'
+                      }`}
+                    />
                   </div>
-                  
-                  {/* Text Content */}
+
                   <div>
-                    <h4 className={`text-h3 md:text-h2 font-bold transition-all duration-500 ${activeSystem.id === system.id ? 'opacity-100' : 'opacity-50'}`}>
+                    <h4
+                      className={`text-[clamp(1.15rem,1.3vw,1.4rem)] font-medium leading-[1.24] text-brand-background transition-opacity duration-300 ${
+                        isActive ? 'opacity-100' : 'opacity-75'
+                      }`}
+                    >
                       {system.title}
                     </h4>
-                    <p className={`text-small transition-all duration-700 max-w-sm mt-3 overflow-hidden ${
-                      activeSystem.id === system.id ? 'max-h-24 opacity-60' : 'max-h-0 opacity-0'
-                    }`}>
-                      {system.description}
+                    <p className="mt-1 max-w-[56ch] text-[clamp(0.88rem,0.92vw,0.98rem)] leading-[1.48] text-brand-background/68">
+                      {truncateDescription(system.description)}
                     </p>
                   </div>
-                </div>
 
-                {/* Animated Thumbnail Card */}
-                <div className={`relative hidden md:block w-28 h-28 rounded-xl overflow-hidden shadow-2xl transition-all duration-700 delay-75 transform ${
-                  activeSystem.id === system.id ? 'translate-x-0 scale-100 opacity-100 rotate-0' : 'translate-x-8 scale-75 opacity-0 -rotate-6'
-                }`}>
-                  <Image 
-                    src={system.thumbnail} 
-                    alt={system.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </button>
-            ))}
-
-            {/* Bottom Indicator */}
-            <div className="flex justify-center pt-12 opacity-30 animate-bounce">
-               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 13l-7 7-7-7" />
-               </svg>
-            </div>
+                  <div className="relative h-16 w-16 overflow-hidden border border-brand-background/18 md:h-20 md:w-20">
+                    <Image
+                      src={system.thumbnail}
+                      alt={system.title}
+                      fill
+                      className={`object-cover transition-all duration-500 ${
+                        isActive ? 'scale-100 opacity-100' : 'scale-95 opacity-85'
+                      }`}
+                      sizes="96px"
+                    />
+                  </div>
+                </button>
+              );
+            })}
           </div>
+
+          {systemsFamilies.length > MAX_VISIBLE_ROWS ? (
+            <div className="flex justify-center pt-3">
+              <button
+                type="button"
+                onClick={handleArrowToggle}
+                aria-label={canScrollDown ? 'Voir plus de systèmes' : 'Revenir au début des systèmes'}
+                className="inline-flex h-10 w-10 items-center justify-center text-brand-background transition-colors hover:text-brand-background/72"
+              >
+                <svg
+                  className={`h-6 w-6 transition-transform duration-300 ${
+                    canScrollDown ? 'rotate-0' : 'rotate-180'
+                  }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 9l6 6 6-6" />
+                </svg>
+              </button>
+            </div>
+          ) : null}
         </div>
-      </SectionWrapper>
-    </div>
+      </div>
+    </SectionWrapper>
   );
 };
 

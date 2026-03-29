@@ -22,49 +22,49 @@ const qualityCards = [
 
 const QualityProofSection = () => {
   return (
-    <SectionWrapper className="bg-neutral-50 py-24">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+    <SectionWrapper className="bg-brand-background">
+      <div className="mb-section flex flex-col justify-between gap-card-gap md:flex-row md:items-end">
         <div className="max-w-2xl">
-          <span className="text-primary font-bold tracking-wider uppercase text-small block mb-4">
+          <span className="mb-4 block text-sm font-semibold uppercase tracking-wider text-brand-primaryText">
             Qualité & Conformité
           </span>
-          <h2 className="text-h2 md:text-h1 font-heading font-bold text-text leading-tight">
+          <h2 className="type-title">
             La qualité se démontre par la preuve
           </h2>
-          <p className="mt-6 text-body text-text-muted max-w-xl">
+          <p className="mt-title-subtitle max-w-xl text-body">
             Pour Marélion, la conformité n&apos;est pas une déclaration, mais un processus continu de validation au service de la performance.
           </p>
         </div>
         
         <Link 
           href="#" 
-          className="inline-flex items-center text-primary font-bold hover:translate-x-1 transition-transform group"
+          className="group inline-flex items-center text-button text-brand-primaryText transition-transform hover:translate-x-1"
         >
           Approfondir notre démarche qualité
-          <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 gap-card-gap md:grid-cols-3">
         {qualityCards.map((card) => (
           <div 
             key={card.title} 
-            className="bg-white p-10 rounded-2xl border border-neutral-100 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full"
+            className="flex h-full flex-col rounded-2xl border border-brand-secondaryText/10 bg-brand-background p-10 shadow-sm transition-shadow hover:shadow-md"
           >
-            <h3 className="text-h3 font-bold text-text mb-6 leading-snug">
+            <h3 className="mb-title-subtitle text-body-display font-medium text-brand-secondaryText">
               {card.title}
             </h3>
-            <p className="text-body text-text-muted mb-8 flex-grow">
+            <p className="mb-card-gap flex-grow text-body">
               {card.description}
             </p>
             <Link 
               href={card.link}
-              className="mt-auto inline-flex items-center text-primary font-bold hover:underline"
+              className="mt-auto inline-flex items-center text-button text-brand-primaryText hover:underline"
             >
               En savoir plus
-              <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>

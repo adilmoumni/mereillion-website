@@ -1,0 +1,170 @@
+'use client';
+
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import SectionWrapper from '../common/SectionWrapper';
+
+type Interlocutor = {
+  title: string;
+  image: string;
+  alt: string;
+};
+
+const interlocutors: Interlocutor[] = [
+  {
+    title: 'Architectes & Prescripteurs',
+    image: '/images/Home Page/Home Pics/5.webp',
+    alt: 'Façade architecturale contemporaine',
+  },
+  {
+    title: 'Ingénieries & Maîtres d’œuvre',
+    image: '/images/Home Page/Home Pics/6.webp',
+    alt: 'Pont moderne et infrastructure',
+  },
+  {
+    title: 'Maîtres d’Ouvrage Institutionnels',
+    image: '/images/Home Page/Home Pics/7.webp',
+    alt: 'Bâtiment institutionnel moderne',
+  },
+  {
+    title: 'Directions Achats / Procurement',
+    image: '/images/Home Page/Home Pics/8.webp',
+    alt: 'Espace de réunion professionnel',
+  },
+  {
+    title: 'Industriels',
+    image: '/images/Home Page/Home Pics/9.webp',
+    alt: 'Zone logistique industrielle',
+  },
+];
+
+const InterlocutorsSliderSection = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<(HTMLElement | null)[]>([]);
+
+  const updateSliderState = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    let nearestIndex = 0;
+    let nearestDistance = Number.POSITIVE_INFINITY;
+
+    cardRefs.current.forEach((card, index) => {
+      if (!card) return;
+      const distance = Math.abs(card.offsetLeft - track.scrollLeft);
+      if (distance < nearestDistance) {
+        nearestDistance = distance;
+        nearestIndex = index;
+      }
+    });
+
+    setActiveIndex(nearestIndex);
+  }, []);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    updateSliderState();
+
+    const onScroll = () => updateSliderState();
+    const onResize = () => updateSliderState();
+
+    track.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      track.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+    };
+  }, [updateSliderState]);
+
+  const scrollToIndex = (index: number) => {
+    const boundedIndex = Math.min(interlocutors.length - 1, Math.max(0, index));
+    const card = cardRefs.current[boundedIndex];
+    if (!card) return;
+
+    card.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'start',
+    });
+  };
+
+  const handleWheelScroll = (event: React.WheelEvent<HTMLDivElement>) => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+
+    track.scrollLeft += event.deltaY;
+    event.preventDefault();
+  };
+
+  return (
+    <SectionWrapper
+      id="interlocuteurs"
+      withContainerPadding={false}
+      containerClassName="max-w-none"
+      className="bg-brand-background"
+    >
+      <div className="mx-auto mb-card-gap w-full max-w-7xl px-container-gap">
+        <h2 className="text-[clamp(2rem,3.1vw,3.5rem)] font-medium leading-[1.12] text-brand-secondaryText">
+          Nos Interlocuteurs
+        </h2>
+      </div>
+
+      <div
+        ref={trackRef}
+        onWheel={handleWheelScroll}
+        className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 pl-5 pr-6 scroll-smooth sm:pl-7 sm:pr-8 md:gap-6 md:pl-10 md:pr-10 lg:gap-7 lg:pl-14 lg:pr-14 xl:pl-20 xl:pr-20 [&::-webkit-scrollbar]:hidden"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {interlocutors.map((item, index) => (
+          <article
+            key={item.title}
+            ref={(element) => {
+              cardRefs.current[index] = element;
+            }}
+            className="group w-[84vw] min-w-[84vw] shrink-0 snap-start sm:w-[72vw] sm:min-w-[72vw] md:w-[58vw] md:min-w-[58vw] lg:w-[46vw] lg:min-w-[46vw] xl:w-[40vw] xl:min-w-[40vw]"
+          >
+            <div className="relative aspect-[4/2.9] overflow-hidden rounded-[2px]">
+              <Image
+                src={item.image}
+                alt={item.alt}
+                fill
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]"
+                sizes="(max-width: 640px) 84vw, (max-width: 768px) 72vw, (max-width: 1024px) 58vw, (max-width: 1280px) 46vw, 40vw"
+              />
+            </div>
+
+            <p className="mt-3.5 text-[clamp(1rem,1.08vw,1.2rem)] font-medium leading-[1.45] text-brand-secondaryText/90">
+              {item.title}
+            </p>
+          </article>
+        ))}
+      </div>
+
+      <div className="mx-auto mt-card-gap w-full max-w-7xl px-container-gap">
+        <div className="flex w-full max-w-[680px] items-center gap-2">
+          {interlocutors.map((item, index) => (
+            <button
+              key={item.title}
+              type="button"
+              onClick={() => scrollToIndex(index)}
+              aria-label={`Afficher ${item.title}`}
+              className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
+                index === activeIndex
+                  ? 'bg-brand-primaryText'
+                  : 'bg-brand-secondaryText/14 hover:bg-brand-secondaryText/26'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </SectionWrapper>
+  );
+};
+
+export default InterlocutorsSliderSection;
