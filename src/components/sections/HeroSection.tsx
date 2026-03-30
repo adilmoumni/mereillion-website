@@ -19,8 +19,8 @@ const HeroSection = () => {
 
       {/* Content Container - Constrained */}
       <div className="relative z-20 mx-auto w-full max-w-7xl px-container-gap">
-        <div className="max-w-4xl pt-24 sm:pt-28 md:pt-32">
-          <h1 className="animate-fade-in text-header-1 font-medium leading-[1.05] text-brand-background">
+        <div className="max-w-5xl pt-24 sm:pt-28 md:pt-32">
+          <h1 className="animate-fade-in text-header-1 tracking-[-1.92px] lg:text-[64px] font-medium leading-[1.05] text-brand-background">
             Sourcing technique et solutions d&apos;ingénierie intégrées
           </h1>
           <p className="animate-fade-in-up mt-title-subtitle max-w-2xl text-body leading-[1.35] text-brand-background/85">

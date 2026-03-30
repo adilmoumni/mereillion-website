@@ -22,12 +22,12 @@ const SplitContactCtaSection = ({
   actionHref,
   imageSrc,
   imageAlt,
-  patternSrc = '/images/CTA Banner BG/Cta banner BG.svg',
+  patternSrc = '/images/cta_banner_bg/cta_banner_bg.svg',
   className = '',
 }: SplitContactCtaSectionProps) => {
   return (
-    <section className={`mt-section w-full ${className}`}>
-      <div className="grid min-h-[500px] grid-cols-1 md:grid-cols-2">
+    <section className={`mt-section w-full overflow-hidden ${className}`}>
+      <div className="grid min-h-[460px] grid-cols-1 md:grid-cols-2">
         <div className="relative overflow-hidden">
           <Image
             src={patternSrc}
@@ -38,19 +38,19 @@ const SplitContactCtaSection = ({
             sizes="(max-width: 768px) 100vw, 50vw"
           />
 
-          <div className="relative z-10 flex h-full items-center px-6 py-12 sm:px-10 md:py-14 lg:px-14">
-            <div className="max-w-[18ch] text-brand-background">
-              <h2 className="text-[clamp(2rem,3.3vw,3.6rem)] font-medium leading-[1.08]">
+          <div className="relative z-10 flex h-full items-center px-6 py-10 sm:px-10 md:py-14 lg:px-14">
+            <div className="max-w-[24ch] text-brand-background md:max-w-[20ch]">
+              <h2 className="text-[clamp(1.85rem,3.2vw,3.25rem)] font-medium leading-[1.08]">
                 {title}
               </h2>
 
-              <p className="mt-5 max-w-[36ch] text-[clamp(1rem,1.05vw,1.1rem)] leading-[1.55] text-brand-background/85">
+              <p className="mt-4 max-w-[34ch] text-[clamp(0.98rem,1vw,1.08rem)] leading-[1.55] text-brand-background/85">
                 {body}
               </p>
 
               <Link
                 href={actionHref}
-                className="mt-10 inline-flex min-h-[56px] items-center justify-center gap-3 rounded-full bg-brand-background px-8 py-3 text-button text-brand-primaryText transition-colors hover:bg-brand-secondaryText hover:text-brand-background"
+                className="mt-8 inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-brand-background px-6 py-3 text-button text-brand-primaryText transition-colors hover:bg-brand-secondaryText hover:text-brand-background md:px-8"
               >
                 {actionLabel}
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -61,7 +61,7 @@ const SplitContactCtaSection = ({
           </div>
         </div>
 
-        <div className="relative min-h-[320px]">
+        <div className="relative min-h-[280px] md:min-h-full">
           <Image
             src={imageSrc}
             alt={imageAlt}

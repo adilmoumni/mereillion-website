@@ -87,13 +87,13 @@ const StickyProcessTimelineSection = ({
 
   return (
     <SectionWrapper withSectionSpacing={false} className={`pb-section pt-section ${className}`}>
-      <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
+      <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
         <div className="lg:sticky lg:top-28">
-          <h2 className="max-w-[10ch] text-[clamp(3rem,5.1vw,5.2rem)] font-medium leading-[1.04] text-brand-secondaryText">
+          <h2 className="max-w-[16ch] text-[clamp(2.25rem,4.8vw,4.4rem)] font-medium leading-[1.06] text-brand-secondaryText lg:max-w-[11ch]">
             {leftTitle}
           </h2>
 
-          <p className="mt-8 max-w-[17ch] text-[clamp(1.45rem,1.95vw,2.2rem)] leading-[1.32] text-brand-secondaryText/50">
+          <p className="mt-6 max-w-[34ch] text-[clamp(1.05rem,1.55vw,1.55rem)] leading-[1.45] text-brand-secondaryText/55 lg:max-w-[28ch]">
             {leftSubtitle}
           </p>
         </div>
@@ -115,16 +115,16 @@ const StickyProcessTimelineSection = ({
                 ref={(element) => {
                   stepRefs.current[index] = element;
                 }}
-                className={`relative pl-8 ${index === steps.length - 1 ? 'pb-0' : 'pb-20 md:pb-24'}`}
+                className={`relative pl-6 md:pl-8 ${index === steps.length - 1 ? 'pb-0' : 'pb-16 md:pb-20'}`}
               >
                 <span
-                  className={`absolute left-0 top-1.5 h-6 w-6 -translate-x-1/2 rounded-full border-2 ${
+                  className={`absolute left-0 top-1.5 h-5 w-5 -translate-x-1/2 rounded-full border-2 md:h-6 md:w-6 ${
                     isReached ? 'border-brand-primaryText bg-[#9ec3ca]' : 'border-[#e1eaeb] bg-[#eef2f3]'
                   }`}
                 />
 
                 <span
-                  className={`inline-flex bg-[#e8eeef] px-2 py-1 text-[1.55rem] font-medium leading-none ${
+                  className={`inline-flex bg-[#e8eeef] px-2.5 py-1 text-[1rem] font-medium leading-none md:text-[1.15rem] ${
                     isReached ? 'text-brand-primaryText' : 'text-[#95b3b9]'
                   }`}
                 >
@@ -132,7 +132,7 @@ const StickyProcessTimelineSection = ({
                 </span>
 
                 <h3
-                  className={`mt-6 max-w-[18ch] text-[clamp(2.4rem,3.35vw,4.1rem)] font-medium leading-[1.1] ${
+                  className={`mt-5 max-w-[22ch] text-[clamp(1.75rem,3vw,3rem)] font-medium leading-[1.12] lg:max-w-[18ch] ${
                     isReached ? 'text-brand-primaryText' : 'text-[#8cb0b7]'
                   }`}
                 >
@@ -140,7 +140,7 @@ const StickyProcessTimelineSection = ({
                 </h3>
 
                 <p
-                  className={`mt-5 max-w-[27ch] text-[clamp(1.5rem,1.95vw,2.35rem)] leading-[1.34] ${
+                  className={`mt-4 max-w-[40ch] text-[clamp(1.05rem,1.45vw,1.6rem)] leading-[1.45] ${
                     isReached ? 'text-brand-secondaryText/80' : 'text-[#98b5bb]'
                   }`}
                 >
@@ -148,7 +148,7 @@ const StickyProcessTimelineSection = ({
                 </p>
 
                 <p
-                  className={`mt-6 text-[clamp(1.55rem,1.9vw,2.25rem)] font-medium ${
+                  className={`mt-5 text-[clamp(1.1rem,1.35vw,1.55rem)] font-medium ${
                     isReached ? 'text-brand-primaryText' : 'text-[#95b4ba]'
                   }`}
                 >
@@ -156,13 +156,13 @@ const StickyProcessTimelineSection = ({
                 </p>
 
                 <ul
-                  className={`mt-4 space-y-2 text-[clamp(1.45rem,1.85vw,2.2rem)] leading-[1.32] ${
+                  className={`mt-3 space-y-2 text-[clamp(1rem,1.32vw,1.4rem)] leading-[1.45] ${
                     isReached ? 'text-brand-primaryText' : 'text-[#9dbcc1]'
                   }`}
                 >
                   {step.checklist.map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
-                      <svg className="mt-1 h-6 w-6 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <svg className="mt-1 h-5 w-5 shrink-0 md:h-6 md:w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M3 12.5l4.2 4.2L12 11.9" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                         <path d="M8.8 12.5l4.2 4.2L21 8.8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>

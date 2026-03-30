@@ -119,10 +119,10 @@ const SystemsSection = () => {
     <SectionWrapper id="systemes" as="div" className="overflow-hidden bg-brand-accent text-brand-background">
       <div className="mb-section flex justify-end">
         <div className="animate-fade-in max-w-xl text-right">
-          <h2 className="mb-title-subtitle text-[clamp(1.9rem,2.8vw,3.15rem)] font-medium uppercase leading-[1.12] text-brand-background">
+          <h2 className="mb-title-subtitle text-[clamp(1.7rem,2.5vw,2.8rem)] font-medium uppercase leading-[1.12] text-brand-background">
             NOS FAMILLES DE SYSTÈMES
           </h2>
-          <p className="text-[clamp(0.98rem,1.04vw,1.08rem)] leading-[1.55] text-brand-background/72">
+          <p className="text-[clamp(0.95rem,0.94vw,1rem)] leading-[1.55] text-brand-background/72">
             Chaque famille est abordée comme un système à part entière, avec ses contraintes d&apos;usage, de normes et
             d&apos;exploitation.
           </p>
@@ -156,8 +156,8 @@ const SystemsSection = () => {
           </div>
 
           <div className="animate-fade-in-up space-y-container-gap">
-            <h3 className="text-[clamp(1.6rem,2.15vw,2.35rem)] font-medium leading-[1.2] text-brand-background">{activeSystem.title}</h3>
-            <p className="max-w-md text-[clamp(0.98rem,1.04vw,1.08rem)] leading-[1.55] text-brand-background/72">{activeSystem.description}</p>
+            <h3 className="text-[clamp(1.45rem,1.9vw,2rem)] font-medium leading-[1.2] text-brand-background">{activeSystem.title}</h3>
+            <p className="max-w-md text-[clamp(0.95rem,0.94vw,1rem)] leading-[1.55] text-brand-background/72">{activeSystem.description}</p>
             <Link
               href="/systemes"
               className="inline-flex items-center border-b border-brand-background pb-1 text-button text-brand-background transition-all hover:opacity-100 hover:tracking-wide"
@@ -196,7 +196,7 @@ const SystemsSection = () => {
                 >
                   <div className="flex min-w-[78px] items-center gap-2">
                     <span
-                      className={`text-[clamp(1.3rem,1.55vw,1.75rem)] font-medium leading-none text-brand-background transition-opacity duration-300 ${
+                      className={`text-[clamp(1.15rem,1.35vw,1.45rem)] font-medium leading-none text-brand-background transition-opacity duration-300 ${
                         isActive ? 'opacity-100' : 'opacity-65'
                       }`}
                     >
@@ -211,13 +211,13 @@ const SystemsSection = () => {
 
                   <div>
                     <h4
-                      className={`text-[clamp(1.15rem,1.3vw,1.4rem)] font-medium leading-[1.24] text-brand-background transition-opacity duration-300 ${
+                      className={`text-[clamp(1.02rem,1.1vw,1.18rem)] font-medium leading-[1.3] text-brand-background transition-opacity duration-300 ${
                         isActive ? 'opacity-100' : 'opacity-75'
                       }`}
                     >
                       {system.title}
                     </h4>
-                    <p className="mt-1 max-w-[56ch] text-[clamp(0.88rem,0.92vw,0.98rem)] leading-[1.48] text-brand-background/68">
+                    <p className="mt-1 max-w-[56ch] text-[clamp(0.84rem,0.86vw,0.92rem)] leading-[1.52] text-brand-background/68">
                       {truncateDescription(system.description)}
                     </p>
                   </div>

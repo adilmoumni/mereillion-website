@@ -101,20 +101,20 @@ const MethodPageSection = () => {
         subtitle="Un socle méthodologique structuré pour sécuriser les décisions techniques en amont de l’exécution."
         primaryAction={{ label: 'Télécharger la brochure', href: '#' }}
         secondaryAction={{ label: 'Nous contacter', href: '/#contact' }}
-        imageSrc="/images/Méthode Page/2.webp"
+        imageSrc="/images/methode_page/2.webp"
         imageAlt="Structure verrière architecturale"
       />
 
       <SectionWrapper withSectionSpacing={false} className="pb-section pt-section">
-        <div className="grid items-start gap-12 md:grid-cols-[1fr_1.02fr] md:gap-16 lg:gap-20">
+        <div className="grid items-start gap-10 md:grid-cols-[1fr_1.02fr] md:gap-14 lg:gap-20">
           <div>
-            <h2 className="max-w-[12ch] text-[clamp(3rem,5.3vw,5.2rem)] font-medium leading-[1.04] text-brand-secondaryText">
+            <h2 className="max-w-[15ch] text-[clamp(2.35rem,5vw,4.5rem)] font-medium leading-[1.04] text-brand-secondaryText lg:max-w-[12ch]">
               Une méthode orientée maîtrise des risques
             </h2>
           </div>
 
           <div>
-            <div className="max-w-[19ch] space-y-8 text-[clamp(1.8rem,2.15vw,2.9rem)] leading-[1.28] text-brand-secondaryText">
+            <div className="max-w-[34ch] space-y-6 text-[clamp(1.3rem,1.9vw,2.15rem)] leading-[1.35] text-brand-secondaryText lg:max-w-[19ch] lg:space-y-8">
               <p>
                 Dans les projets complexes, le risque ne réside pas uniquement dans l&apos;exécution, mais dans
                 les décisions prises en amont.
@@ -125,7 +125,7 @@ const MethodPageSection = () => {
               </p>
             </div>
 
-            <p className="mt-10 max-w-[15ch] text-[clamp(3rem,4.4vw,5rem)] font-medium leading-[1.1] text-brand-secondaryText">
+            <p className="mt-10 max-w-[18ch] text-[clamp(2.15rem,4vw,4.2rem)] font-medium leading-[1.1] text-brand-secondaryText lg:max-w-[15ch]">
               La décision précède l&apos;achat.
             </p>
           </div>
@@ -134,13 +134,13 @@ const MethodPageSection = () => {
 
       <section className="w-full bg-gradient-to-r from-[#012f37] via-[#045a67] to-[#067480]">
         <div className="mx-auto w-full max-w-7xl px-container-gap py-14 md:py-16 lg:py-20">
-          <h2 className="max-w-[20ch] text-[clamp(3.2rem,5.3vw,6rem)] font-medium leading-[1.06] text-brand-background">
+          <h2 className="max-w-[18ch] text-[clamp(2.4rem,5vw,5rem)] font-medium leading-[1.06] text-brand-background">
             Les quatre phases structurantes
           </h2>
         </div>
 
         <div className="relative">
-          <div className="sticky top-[84px] min-h-[calc(100svh-84px)] py-8 md:py-10">
+          <div className="sticky top-[72px] min-h-[calc(100svh-72px)] py-6 md:top-[80px] md:min-h-[calc(100svh-80px)] md:py-10">
             <div className="mx-auto w-full max-w-7xl px-container-gap">
               <div className="relative h-px bg-brand-background/35">
                 <span
@@ -153,25 +153,25 @@ const MethodPageSection = () => {
                 key={activePhaseIndex}
                 className="animate-fade-in-up relative mt-8 border-b border-brand-background/35 pb-10 md:mt-10 md:pb-12"
               >
-                <div className="grid items-start gap-8 md:grid-cols-[260px_minmax(0,1fr)] md:gap-14 lg:grid-cols-[340px_minmax(0,1fr)]">
-                  <p className="select-none text-[clamp(8rem,19vw,17rem)] font-medium leading-[0.9] tracking-[-0.04em] text-[#9fc4cb]">
+                <div className="grid items-start gap-6 md:grid-cols-[140px_minmax(0,1fr)] md:gap-10 lg:grid-cols-[240px_minmax(0,1fr)]">
+                  <p className="select-none text-[clamp(4.5rem,15vw,13rem)] font-medium leading-[0.9] tracking-[-0.04em] text-[#9fc4cb]">
                     {phaseNumber}
                   </p>
 
                   <div className="max-w-5xl">
-                    <h3 className="text-[clamp(2.6rem,4vw,4.5rem)] font-medium leading-[1.1] text-[#b7d8dd]">
+                    <h3 className="text-[clamp(2rem,3.5vw,3.7rem)] font-medium leading-[1.1] text-[#b7d8dd]">
                       {activePhase.title}
                     </h3>
 
-                    <p className="mt-6 max-w-[31ch] text-[clamp(1.7rem,2.25vw,2.8rem)] leading-[1.3] text-[#9dc2c8]">
+                    <p className="mt-5 max-w-[34ch] text-[clamp(1.15rem,1.65vw,1.8rem)] leading-[1.45] text-[#9dc2c8]">
                       {activePhase.description}
                     </p>
 
-                    <p className="mt-8 text-[clamp(1.8rem,2.35vw,2.8rem)] font-medium leading-[1.25] text-[#9dc2c8]">
+                    <p className="mt-7 text-[clamp(1.15rem,1.6vw,1.75rem)] font-medium leading-[1.35] text-[#9dc2c8]">
                       {activePhase.actionLabel}
                     </p>
 
-                    <ul className="mt-4 list-disc space-y-1.5 pl-6 text-[clamp(1.6rem,2.05vw,2.55rem)] leading-[1.3] text-[#9dc2c8]">
+                    <ul className="mt-4 list-disc space-y-1.5 pl-5 text-[clamp(1.05rem,1.5vw,1.6rem)] leading-[1.45] text-[#9dc2c8] md:pl-6">
                       {activePhase.actions.map((item) => (
                         <li key={item}>{item}</li>
                       ))}
@@ -200,7 +200,7 @@ const MethodPageSection = () => {
                 ref={(element) => {
                   phaseTriggerRefs.current[index] = element;
                 }}
-                className="h-[85svh]"
+                className="h-[70svh] md:h-[78svh]"
                 aria-hidden
               />
             ))}
@@ -211,19 +211,19 @@ const MethodPageSection = () => {
       <SectionWrapper withSectionSpacing={false} className="pb-section pt-section">
         <div className="grid items-start gap-10 md:grid-cols-[1fr_1.02fr] md:gap-14 lg:gap-20">
           <div>
-            <h2 className="max-w-[12ch] text-[clamp(3rem,5.2vw,5.1rem)] font-medium leading-[1.04] text-brand-secondaryText">
+            <h2 className="max-w-[15ch] text-[clamp(2.35rem,4.8vw,4.4rem)] font-medium leading-[1.04] text-brand-secondaryText lg:max-w-[12ch]">
               Appliquée à chaque famille de systèmes
             </h2>
           </div>
 
           <div>
-            <p className="max-w-[22ch] text-[clamp(1.45rem,2vw,2.2rem)] leading-[1.32] text-brand-secondaryText/50">
+            <p className="max-w-[36ch] text-[clamp(1.05rem,1.45vw,1.55rem)] leading-[1.45] text-brand-secondaryText/55 lg:max-w-[28ch]">
               Notre méthode s&apos;applique à l&apos;ensemble des familles de solutions techniques traitées par Marelion.
             </p>
 
             <Link
               href="/systemes"
-              className="mt-8 inline-flex items-center gap-2 border-b border-brand-primaryText pb-1 text-[clamp(1.45rem,1.8vw,2rem)] font-medium text-brand-primaryText transition-all hover:tracking-wide"
+              className="mt-8 inline-flex items-center gap-2 border-b border-brand-primaryText pb-1 text-[clamp(1rem,1.1vw,1.1rem)] font-medium text-brand-primaryText transition-all hover:tracking-wide"
             >
               Voir les systèmes techniques
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -236,7 +236,7 @@ const MethodPageSection = () => {
         <div className="mt-10 overflow-hidden">
           <div className="relative aspect-[16/9] w-full md:aspect-[16/8.6]">
             <Image
-              src="/images/intégration Page/picture.webp"
+              src="/images/integration_page/picture.webp"
               alt="Espace de travail collaboratif"
               fill
               className="object-cover"
@@ -251,7 +251,7 @@ const MethodPageSection = () => {
           <div className="overflow-hidden">
             <div className="relative aspect-[16/13] w-full">
               <Image
-                src="/images/Méthode Page/3.webp"
+                src="/images/methode_page/3.webp"
                 alt="Processus qualité et pilotage de projet"
                 fill
                 className="object-cover"
@@ -262,18 +262,18 @@ const MethodPageSection = () => {
 
           <div className="flex min-h-full flex-col justify-between">
             <div>
-              <h2 className="max-w-[14ch] text-[clamp(3rem,5vw,5.1rem)] font-medium leading-[1.04] text-brand-secondaryText">
+              <h2 className="max-w-[16ch] text-[clamp(2.35rem,4.8vw,4.4rem)] font-medium leading-[1.04] text-brand-secondaryText lg:max-w-[14ch]">
                 Encadrée par des processus qualité formalisés
               </h2>
 
-              <p className="mt-5 max-w-[23ch] text-[clamp(1.4rem,1.95vw,2.15rem)] leading-[1.32] text-brand-secondaryText/50">
+              <p className="mt-4 max-w-[34ch] text-[clamp(1.05rem,1.35vw,1.45rem)] leading-[1.45] text-brand-secondaryText/55 lg:max-w-[28ch]">
                 Chaque étape méthodologique s&apos;inscrit dans un cadre qualité documenté et vérifié.
               </p>
             </div>
 
             <Link
               href="/qualite"
-              className="mt-12 inline-flex items-center gap-2 border-b border-brand-primaryText pb-1 text-[clamp(1.4rem,1.75vw,1.95rem)] font-medium text-brand-primaryText transition-all hover:tracking-wide"
+              className="mt-10 inline-flex items-center gap-2 border-b border-brand-primaryText pb-1 text-[clamp(1rem,1.1vw,1.08rem)] font-medium text-brand-primaryText transition-all hover:tracking-wide"
             >
               Approfondir la démarche qualité
               <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -289,7 +289,7 @@ const MethodPageSection = () => {
         body="Pour toute demande relative à un projet multi-systèmes ou à une exigence technique spécifique."
         actionLabel="Nous contacter"
         actionHref="/#contact"
-        imageSrc="/images/CTA Banner BG/Pic.webp"
+        imageSrc="/images/cta_banner_bg/pic.webp"
         imageAlt="Cuisine et aménagement intérieur"
       />
     </div>

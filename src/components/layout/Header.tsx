@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Button from '../common/Button';
@@ -105,9 +106,9 @@ const Header = () => {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-container-gap">
         <Link href="/" className="flex items-center gap-4">
           {!isHomeTopState ? (
-            <img src="/logo-green.svg" alt="" />
+            <Image src="/logo-green.svg" alt="Marelion" width={249} height={38} className="h-auto w-[116px] md:w-[132px]" priority />
           ) : (
-            <img src="/logo-white.svg" alt="" />
+            <Image src="/logo-white.svg" alt="Marelion" width={249} height={38} className="h-auto w-[116px] md:w-[132px]" priority />
           )}
         </Link>
 

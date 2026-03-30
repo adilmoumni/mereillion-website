@@ -65,11 +65,11 @@ const HomeQualityStickySection = () => {
     <SectionWrapper withSectionSpacing={false} className="bg-brand-background pb-section pt-section">
       <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.08fr] lg:gap-14">
         <div className="lg:sticky lg:top-28">
-          <h2 className="max-w-[10ch] text-[clamp(2.1rem,3.6vw,3.9rem)] font-medium leading-[1.1] text-brand-secondaryText">
+          <h2 className="max-w-[14ch] text-[clamp(2rem,3.4vw,3.55rem)] font-medium leading-[1.1] text-brand-secondaryText lg:max-w-[10ch]">
             La qualité se démontre par la preuve
           </h2>
 
-          <p className="mt-4 max-w-[36ch] text-[clamp(1rem,1.14vw,1.2rem)] leading-[1.55] text-brand-secondaryText/55">
+          <p className="mt-4 max-w-[38ch] text-[clamp(1rem,1.02vw,1.08rem)] leading-[1.55] text-brand-secondaryText/55">
             Pour Marélion, la conformité n’est pas une déclaration, mais un processus continu de validation.
           </p>
 
@@ -107,7 +107,7 @@ const HomeQualityStickySection = () => {
                 }`}
               >
                 <h3
-                  className={`max-w-[18ch] text-[clamp(1.55rem,2.15vw,2.35rem)] font-medium leading-[1.2] transition-colors duration-500 ${
+                  className={`max-w-[20ch] text-[clamp(1.35rem,1.95vw,2.1rem)] font-medium leading-[1.2] transition-colors duration-500 ${
                     isActive ? 'text-brand-primaryText' : 'text-brand-primaryText/80'
                   }`}
                 >
@@ -115,7 +115,7 @@ const HomeQualityStickySection = () => {
                 </h3>
 
                 <p
-                  className={`mt-3 max-w-[38ch] text-[clamp(1rem,1.14vw,1.2rem)] leading-[1.55] transition-colors duration-500 ${
+                  className={`mt-3 max-w-[40ch] text-[clamp(1rem,1.02vw,1.08rem)] leading-[1.55] transition-colors duration-500 ${
                     isActive ? 'text-brand-secondaryText/95' : 'text-brand-secondaryText/75'
                   }`}
                 >
@@ -124,7 +124,7 @@ const HomeQualityStickySection = () => {
 
                 <Link
                   href={card.href}
-                  className={`mt-8 inline-flex items-center gap-1 border-b border-current pb-0.5 text-[clamp(1rem,1.08vw,1.12rem)] font-medium transition-all hover:tracking-wide ${
+                  className={`mt-8 inline-flex items-center gap-1 border-b border-current pb-0.5 text-[clamp(1rem,0.98vw,1.05rem)] font-medium transition-all hover:tracking-wide ${
                     isActive ? 'text-brand-primaryText' : 'text-brand-primaryText/85'
                   }`}
                 >

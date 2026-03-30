@@ -13,27 +13,27 @@ type Interlocutor = {
 const interlocutors: Interlocutor[] = [
   {
     title: 'Architectes & Prescripteurs',
-    image: '/images/Home Page/Home Pics/5.webp',
+    image: '/images/home_page/home_pics/5.webp',
     alt: 'Façade architecturale contemporaine',
   },
   {
     title: 'Ingénieries & Maîtres d’œuvre',
-    image: '/images/Home Page/Home Pics/6.webp',
+    image: '/images/home_page/home_pics/6.webp',
     alt: 'Pont moderne et infrastructure',
   },
   {
     title: 'Maîtres d’Ouvrage Institutionnels',
-    image: '/images/Home Page/Home Pics/7.webp',
+    image: '/images/home_page/home_pics/7.webp',
     alt: 'Bâtiment institutionnel moderne',
   },
   {
     title: 'Directions Achats / Procurement',
-    image: '/images/Home Page/Home Pics/8.webp',
+    image: '/images/home_page/home_pics/8.webp',
     alt: 'Espace de réunion professionnel',
   },
   {
     title: 'Industriels',
-    image: '/images/Home Page/Home Pics/9.webp',
+    image: '/images/home_page/home_pics/9.webp',
     alt: 'Zone logistique industrielle',
   },
 ];
@@ -110,7 +110,7 @@ const InterlocutorsSliderSection = () => {
       className="bg-brand-background"
     >
       <div className="mx-auto mb-card-gap w-full max-w-7xl px-container-gap">
-        <h2 className="text-[clamp(2rem,3.1vw,3.5rem)] font-medium leading-[1.12] text-brand-secondaryText">
+        <h2 className="text-[clamp(1.85rem,2.8vw,3.1rem)] font-medium leading-[1.12] text-brand-secondaryText">
           Nos Interlocuteurs
         </h2>
       </div>
@@ -139,7 +139,7 @@ const InterlocutorsSliderSection = () => {
               />
             </div>
 
-            <p className="mt-3.5 text-[clamp(1rem,1.08vw,1.2rem)] font-medium leading-[1.45] text-brand-secondaryText/90">
+            <p className="mt-3.5 text-[clamp(0.98rem,0.98vw,1.08rem)] font-medium leading-[1.45] text-brand-secondaryText/90">
               {item.title}
             </p>
           </article>

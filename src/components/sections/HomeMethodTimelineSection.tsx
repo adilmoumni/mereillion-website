@@ -147,11 +147,11 @@ const HomeMethodTimelineSection = () => {
   return (
     <SectionWrapper withSectionSpacing={false} className="bg-brand-background pb-section pt-section">
       <div className="mx-auto max-w-4xl text-center">
-        <h2 className="text-[clamp(2.15rem,3.7vw,3.95rem)] font-medium leading-[1.1] text-brand-secondaryText">
+        <h2 className="text-[clamp(2rem,3.4vw,3.55rem)] font-medium leading-[1.1] text-brand-secondaryText">
           La méthode : concevoir avant d’exécuter
         </h2>
 
-        <p className="mx-auto mt-4 max-w-[40ch] text-[clamp(1rem,1.15vw,1.2rem)] leading-[1.55] text-brand-secondaryText/55">
+        <p className="mx-auto mt-4 max-w-[42ch] text-[clamp(1rem,1.02vw,1.08rem)] leading-[1.55] text-brand-secondaryText/55">
           Notre méthode constitue un socle de sécurisation conçu pour les projets à forte exigence technique.
         </p>
       </div>
@@ -227,11 +227,11 @@ const HomeMethodTimelineSection = () => {
                     {step.id}
                   </span>
 
-                  <h3 className={`mt-3 text-[clamp(1.6rem,2.25vw,2.45rem)] font-medium leading-[1.2] transition-colors duration-500 ${textTitleClass}`}>
+                  <h3 className={`mt-3 text-[clamp(1.35rem,1.9vw,2.1rem)] font-medium leading-[1.2] transition-colors duration-500 ${textTitleClass}`}>
                     {step.title}
                   </h3>
 
-                  <p className={`mt-2.5 max-w-[36ch] text-[clamp(1rem,1.14vw,1.2rem)] leading-[1.55] transition-colors duration-500 ${textBodyClass} ${isTextOnRight ? '' : 'lg:ml-auto'}`}>
+                  <p className={`mt-2.5 max-w-[38ch] text-[clamp(1rem,1.02vw,1.08rem)] leading-[1.55] transition-colors duration-500 ${textBodyClass} ${isTextOnRight ? '' : 'lg:ml-auto'}`}>
                     {step.description}
                   </p>
                 </div>

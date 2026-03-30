@@ -9,11 +9,11 @@ const PositioningStatementSection = () => {
       withSectionSpacing={false}
     >
       <div className="relative mx-auto w-full py-12 md:py-14">
-        <p className="animate-text-drift-right text-[clamp(1.35rem,2.35vw,2.65rem)] font-medium leading-[1.18] text-brand-primaryText md:whitespace-nowrap">
+        <p className="animate-text-drift-right text-[clamp(1.15rem,2vw,2.25rem)] font-medium leading-[1.2] text-brand-primaryText md:whitespace-nowrap">
           Marelion ne vend pas des références.
         </p>
 
-        <p className="animate-text-drift-left mt-3 text-[clamp(1.35rem,2.35vw,2.65rem)] font-medium leading-[1.18] text-brand-primaryText md:whitespace-nowrap md:pl-[clamp(1rem,8vw,12rem)] [animation-delay:-2.6s]">
+        <p className="animate-text-drift-left mt-3 text-[clamp(1.15rem,2vw,2.25rem)] font-medium leading-[1.2] text-brand-primaryText md:whitespace-nowrap md:pl-[clamp(1rem,8vw,12rem)] [animation-delay:-2.6s]">
           Marelion sécurise des choix techniques.
         </p>
       </div>

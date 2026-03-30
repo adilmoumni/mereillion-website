@@ -88,20 +88,20 @@ const QualityPageSection = () => {
         subtitle="Un cadre formalisé de validation, de contrôle et de traçabilité appliqué à chaque projet."
         primaryAction={{ label: 'Télécharger la brochure', href: '#' }}
         secondaryAction={{ label: 'Nous contacter', href: '/#contact' }}
-        imageSrc="/images/Qualité Page/picture.webp"
+        imageSrc="/images/qualite_page/picture.webp"
         imageAlt="Espace d'accueil et contrôle qualité"
       />
 
       <SectionWrapper withSectionSpacing={false} className="pb-section pt-section">
-        <div className="grid items-start gap-12 md:grid-cols-[1fr_1.02fr] md:gap-16 lg:gap-20">
+        <div className="grid items-start gap-10 md:grid-cols-[1fr_1.02fr] md:gap-14 lg:gap-20">
           <div>
-            <h2 className="max-w-[9ch] text-[clamp(3rem,5.3vw,5.3rem)] font-medium leading-[1.04] text-brand-secondaryText">
+            <h2 className="max-w-[14ch] text-[clamp(2.35rem,4.8vw,4.5rem)] font-medium leading-[1.04] text-brand-secondaryText lg:max-w-[9ch]">
               Une culture de la preuve
             </h2>
           </div>
 
           <div>
-            <div className="max-w-[19ch] space-y-8 text-[clamp(1.8rem,2.15vw,2.9rem)] leading-[1.28] text-brand-secondaryText">
+            <div className="max-w-[34ch] space-y-6 text-[clamp(1.3rem,1.9vw,2.15rem)] leading-[1.35] text-brand-secondaryText lg:max-w-[19ch] lg:space-y-8">
               <p>La qualité ne repose pas sur l&apos;intention mais sur la validation méthodique.</p>
               <p>
                 Chaque décision technique est accompagnée d&apos;une justification documentée, vérifiable et
@@ -109,7 +109,7 @@ const QualityPageSection = () => {
               </p>
             </div>
 
-            <p className="mt-10 max-w-[14ch] text-[clamp(3rem,4.4vw,5rem)] font-medium leading-[1.1] text-brand-secondaryText">
+            <p className="mt-10 max-w-[18ch] text-[clamp(2.15rem,4vw,4.2rem)] font-medium leading-[1.1] text-brand-secondaryText lg:max-w-[14ch]">
               La conformité est intégrée au processus, pas ajoutée en fin de projet.
             </p>
           </div>
@@ -119,11 +119,11 @@ const QualityPageSection = () => {
       <SectionWrapper withSectionSpacing={false} className="pb-section pt-section">
         <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.02fr] lg:gap-16">
           <div className="lg:sticky lg:top-32">
-            <h2 className="max-w-[11ch] text-[clamp(3rem,5.1vw,5.1rem)] font-medium leading-[1.04] text-brand-secondaryText">
+            <h2 className="max-w-[16ch] text-[clamp(2.35rem,4.8vw,4.4rem)] font-medium leading-[1.04] text-brand-secondaryText lg:max-w-[11ch]">
               Chaque projet est encadré par :
             </h2>
 
-            <div className="mt-8 max-w-[18ch] space-y-8 text-[clamp(1.45rem,1.95vw,2.2rem)] leading-[1.32] text-brand-secondaryText/50">
+            <div className="mt-6 max-w-[34ch] space-y-6 text-[clamp(1.05rem,1.35vw,1.45rem)] leading-[1.45] text-brand-secondaryText/55 lg:max-w-[28ch] lg:space-y-8">
               <p>Pour Marélion, la conformité n&apos;est pas une déclaration, mais un processus continu de validation.</p>
               <p>
                 Notre objectif est de protéger la performance globale de l&apos;ouvrage et de garantir la
@@ -136,20 +136,20 @@ const QualityPageSection = () => {
             <div className="lg:sticky lg:top-28">
               <article
                 key={activeBlockIndex}
-                className="animate-fade-in-up min-h-[540px] bg-[#dce9ea] p-8 md:min-h-[620px] md:p-12"
+                className="animate-fade-in-up min-h-[420px] bg-[#dce9ea] p-6 md:min-h-[520px] md:p-10"
               >
-                <h3 className="max-w-[12ch] text-[clamp(2.8rem,4.4vw,4.9rem)] font-medium leading-[1.06] text-brand-primaryText">
+                <h3 className="max-w-[16ch] text-[clamp(2rem,3.6vw,4rem)] font-medium leading-[1.06] text-brand-primaryText lg:max-w-[12ch]">
                   {activeBlock.title}
                 </h3>
 
-                <p className="mt-6 max-w-[26ch] text-[clamp(1.75rem,2.2vw,2.9rem)] leading-[1.3] text-brand-secondaryText">
+                <p className="mt-5 max-w-[34ch] text-[clamp(1.15rem,1.6vw,1.9rem)] leading-[1.45] text-brand-secondaryText">
                   {activeBlock.description}
                 </p>
 
-                <ul className="mt-12 space-y-4 text-[clamp(1.7rem,2.1vw,2.65rem)] font-medium leading-[1.28] text-brand-primaryText">
+                <ul className="mt-8 space-y-3 text-[clamp(1.05rem,1.5vw,1.7rem)] font-medium leading-[1.45] text-brand-primaryText">
                   {activeBlock.points.map((point) => (
                     <li key={point} className="flex items-start gap-3">
-                      <svg className="mt-1.5 h-7 w-7 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <svg className="mt-1.5 h-5 w-5 shrink-0 md:h-6 md:w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                         <path d="M3 12.5l4.2 4.2L12 11.9" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
                         <path d="M8.8 12.5l4.2 4.2L21 8.8" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
@@ -168,7 +168,7 @@ const QualityPageSection = () => {
                   ref={(element) => {
                     blockTriggerRefs.current[index] = element;
                   }}
-                  className="h-[85svh]"
+                  className="h-[72svh] md:h-[82svh]"
                   aria-hidden
                 />
               ))}
@@ -179,27 +179,27 @@ const QualityPageSection = () => {
 
       <section className="w-full border-t border-brand-background/45 bg-gradient-to-r from-[#012f37] via-[#045a67] to-[#067480]">
         <div className="mx-auto w-full max-w-7xl px-container-gap py-14 md:py-16 lg:py-20">
-          <h2 className="max-w-[17ch] text-[clamp(3.1rem,5.2vw,5.4rem)] font-medium leading-[1.07] text-brand-background">
+          <h2 className="max-w-[17ch] text-[clamp(2.35rem,4.8vw,4.8rem)] font-medium leading-[1.07] text-brand-background">
             Maîtrise des risques techniques et réglementaires
           </h2>
 
-          <p className="mt-8 max-w-[25ch] text-[clamp(1.5rem,1.95vw,2.35rem)] leading-[1.32] text-[#91bcc4]">
+          <p className="mt-6 max-w-[34ch] text-[clamp(1.08rem,1.4vw,1.55rem)] leading-[1.45] text-[#91bcc4]">
             Notre cadre qualité vise à anticiper et réduire les risques liés à :
           </p>
 
-          <div className="mt-12 space-y-5">
+          <div className="mt-10 space-y-4 md:mt-12 md:space-y-5">
             {riskRows.map((row) => (
               <button
                 key={row}
                 type="button"
-                className="group flex w-full items-center justify-between border border-[#3a8b97] bg-transparent px-6 py-5 text-left transition-colors duration-200 hover:bg-[#dce9ea] md:px-8 md:py-6"
+                className="group flex w-full items-center justify-between border border-[#3a8b97] bg-transparent px-5 py-4 text-left transition-colors duration-200 hover:bg-[#dce9ea] md:px-8 md:py-6"
               >
-                <span className="text-[clamp(2.1rem,2.8vw,3.4rem)] font-medium leading-[1.2] text-brand-background transition-colors group-hover:text-brand-primaryText">
+                <span className="text-[clamp(1.4rem,2.4vw,2.4rem)] font-medium leading-[1.25] text-brand-background transition-colors group-hover:text-brand-primaryText">
                   {row}
                 </span>
 
                 <svg
-                  className="h-8 w-8 shrink-0 text-brand-background transition-colors group-hover:text-brand-primaryText md:h-10 md:w-10"
+                  className="h-7 w-7 shrink-0 text-brand-background transition-colors group-hover:text-brand-primaryText md:h-9 md:w-9"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -215,15 +215,15 @@ const QualityPageSection = () => {
       </section>
 
       <SectionWrapper withSectionSpacing={false} className="pb-section pt-section">
-        <div className="grid items-start gap-12 md:grid-cols-[1fr_1.02fr] md:gap-16 lg:gap-20">
+        <div className="grid items-start gap-10 md:grid-cols-[1fr_1.02fr] md:gap-14 lg:gap-20">
           <div>
-            <h2 className="max-w-[8ch] text-[clamp(3rem,5.2vw,5.3rem)] font-medium leading-[1.04] text-brand-secondaryText">
+            <h2 className="max-w-[14ch] text-[clamp(2.35rem,4.8vw,4.5rem)] font-medium leading-[1.04] text-brand-secondaryText lg:max-w-[8ch]">
               Traçabilité & responsabilité
             </h2>
           </div>
 
           <div>
-            <div className="max-w-[19ch] space-y-8 text-[clamp(1.8rem,2.15vw,2.9rem)] leading-[1.28] text-brand-secondaryText">
+            <div className="max-w-[34ch] space-y-6 text-[clamp(1.3rem,1.9vw,2.15rem)] leading-[1.35] text-brand-secondaryText lg:max-w-[19ch] lg:space-y-8">
               <p>Chaque étape du processus est documentée, archivée et vérifiable.</p>
               <p>
                 Nous assumons la responsabilité de la cohérence entre les choix validés et leur mise en oeuvre
@@ -231,7 +231,7 @@ const QualityPageSection = () => {
               </p>
             </div>
 
-            <p className="mt-10 max-w-[13ch] text-[clamp(3rem,4.4vw,5rem)] font-medium leading-[1.1] text-brand-secondaryText">
+            <p className="mt-10 max-w-[18ch] text-[clamp(2.15rem,4vw,4.2rem)] font-medium leading-[1.1] text-brand-secondaryText lg:max-w-[13ch]">
               Chaque décision est justifiée. Chaque conformité est démontrée.
             </p>
           </div>

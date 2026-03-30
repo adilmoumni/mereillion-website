@@ -34,36 +34,36 @@ const PageHeroImageSection = ({
   return (
     <SectionWrapper
       withSectionSpacing={false}
-      className="pt-title-subtitle"
+      className="pt-4 sm:pt-title-subtitle"
       withContainerPadding={false}
       containerClassName="max-w-none"
     >
       <div className="mx-auto max-w-7xl px-container-gap">
-        <div className="mx-auto max-w-5xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-primaryText/40 px-5 py-2 text-[1.03rem] font-medium text-brand-primaryText">
+        <div className="mx-auto max-w-4xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-brand-primaryText/40 px-4 py-2 text-[0.92rem] font-medium text-brand-primaryText sm:px-5 sm:text-[0.98rem]">
             <span className="h-1.5 w-1.5 rounded-full bg-brand-primaryText" />
             {badgeLabel}
           </span>
 
-          <h1 className="mt-8 text-[clamp(2.5rem,6vw,4.4rem)] font-medium leading-[1.08] text-brand-secondaryText">
+          <h1 className="mt-7 text-[clamp(2.15rem,5.4vw,4rem)] font-medium leading-[1.07] text-brand-secondaryText">
             {title}
           </h1>
 
-          <p className="mx-auto mt-8 max-w-3xl text-[clamp(1.15rem,2.1vw,2rem)] leading-[1.35] text-brand-secondaryText/50">
+          <p className="mx-auto mt-6 max-w-[44ch] text-[clamp(1rem,1.45vw,1.55rem)] leading-[1.5] text-brand-secondaryText/55">
             {subtitle}
           </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row">
             <Link
               href={primaryAction.href}
-              className="inline-flex min-h-[54px] items-center justify-center rounded-full border border-transparent bg-brand-primaryText px-10 py-3 text-button text-brand-background transition-colors hover:bg-brand-secondaryText"
+              className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full border border-transparent bg-brand-primaryText px-8 py-3 text-button text-brand-background transition-colors hover:bg-brand-secondaryText sm:w-auto sm:px-10"
             >
               {primaryAction.label}
             </Link>
             {secondaryAction ? (
               <Link
                 href={secondaryAction.href}
-                className="inline-flex min-h-[54px] items-center justify-center rounded-full border border-brand-primaryText px-10 py-3 text-button text-brand-primaryText transition-colors hover:bg-brand-primaryText hover:text-brand-background"
+                className="inline-flex min-h-[52px] w-full items-center justify-center rounded-full border border-brand-primaryText px-8 py-3 text-button text-brand-primaryText transition-colors hover:bg-brand-primaryText hover:text-brand-background sm:w-auto sm:px-10"
               >
                 {secondaryAction.label}
               </Link>
@@ -73,8 +73,8 @@ const PageHeroImageSection = ({
       </div>
 
       {imageSrc ? (
-        <div className="mt-14 w-full overflow-hidden">
-          <div className="relative aspect-[4/3] w-full md:aspect-[2/1]">
+        <div className="mt-12 w-full overflow-hidden md:mt-14">
+          <div className="relative aspect-[5/4] w-full md:aspect-[2/1]">
             <Image
               src={imageSrc}
               alt={imageAlt ?? ''}

@@ -6,7 +6,7 @@ import SectionWrapper from '../common/SectionWrapper';
 const ContactMapSection = () => {
   return (
     <SectionWrapper id="map" withSectionSpacing={false} className="pb-section pt-section">
-      <h2 className="text-[clamp(3rem,5vw,5.1rem)] font-medium leading-[1.06] text-brand-secondaryText">
+      <h2 className="text-[clamp(2.35rem,4.8vw,4.4rem)] font-medium leading-[1.06] text-brand-secondaryText">
         Nous trouver sur Map
       </h2>
 

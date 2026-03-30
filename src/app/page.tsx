@@ -25,7 +25,7 @@ export default function Home() {
         body="Pour toute demande relative à un projet multi-systèmes ou à une exigence technique spécifique."
         actionLabel="Nous contacter"
         actionHref="/contact"
-        imageSrc="/images/Home Page/Home Pics/10.webp"
+        imageSrc="/images/home_page/home_pics/10.webp"
         imageAlt="Espace de direction et échange technique"
       />
       
