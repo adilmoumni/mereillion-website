@@ -50,7 +50,8 @@ const defaultSocialLinks: FooterSocialLink[] = [
 const defaultLegalLinks: FooterLink[] = [
   { label: 'Mentions légales', href: '/terms' },
   { label: 'Politique de confidentialité', href: '/privacy' },
-  { label: 'Politique relative aux cookies', href: '/cookies' }
+  { label: 'Politique relative aux cookies', href: '/cookies' },
+  { label: 'CGU', href: '/cgu' },
 ];
 
 const socialIcon = (platform: FooterSocialLink['platform']) => {
