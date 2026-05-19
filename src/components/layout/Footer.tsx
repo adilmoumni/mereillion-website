@@ -50,8 +50,7 @@ const defaultSocialLinks: FooterSocialLink[] = [
 const defaultLegalLinks: FooterLink[] = [
   { label: 'Mentions légales', href: '/terms' },
   { label: 'Politique de confidentialité', href: '/privacy' },
-  { label: 'Politique relative aux cookies', href: '/cookies' },
-  { label: 'Map', href: '/sitemap' },
+  { label: 'Politique relative aux cookies', href: '/cookies' }
 ];
 
 const socialIcon = (platform: FooterSocialLink['platform']) => {
@@ -103,8 +102,8 @@ const Footer: React.FC<FooterProps> = ({
   navLinks = defaultNavLinks,
   contactTitle = 'Contact',
   addressLines = defaultAddress,
-  phone = '+212 688 183 034',
-  email = 'contact@marelio-ts.com',
+  phone = '+212 664-748172',
+  email = '',
   socialLinks = defaultSocialLinks,
   legalLinks = defaultLegalLinks,
   year = new Date().getFullYear(),
@@ -123,21 +122,15 @@ const Footer: React.FC<FooterProps> = ({
         <div className="grid grid-cols-1 gap-card-gap md:grid-cols-12">
           {/* Brand section */}
           <div className="md:col-span-5">
-            <div className="mb-title-subtitle flex items-center gap-4">
-              <svg className="h-9 w-14 shrink-0 text-brand-primaryText" viewBox="0 0 64 40" fill="currentColor" aria-hidden="true">
-                <path d="M2 4h10l18 18V4h10v32H30L12 18v18H2V4Z" />
-                <path d="M24 4h10l18 18V4h10v32H52L34 18v18H24V4Z" />
-              </svg>
-              <h3 className="text-title font-medium leading-none">{brandName}</h3>
-            </div>
-            <p className="max-w-md text-body text-brand-primaryText">
+            <img src="images/logo-blue.svg" alt="Logo" />
+            <p className="max-w-sm text-body text-brand-primaryText mt-5">
               {description}
             </p>
           </div>
 
           {/* Navigation section */}
           <div className="md:col-span-2">
-            <h4 className="mb-6 text-button font-medium">{navTitle}</h4>
+            <h4 className="mb-6 text-button font-bold">{navTitle}</h4>
             <ul className="space-y-container-gap">
               {navLinks.map((link) => (
                 <li key={link.label}>
@@ -152,24 +145,30 @@ const Footer: React.FC<FooterProps> = ({
 
           {/* Contact section */}
           <div className="md:col-span-4">
-            <h4 className="mb-6 text-button font-medium">{contactTitle}</h4>
+            <h4 className="mb-6 text-button font-bold">{contactTitle}</h4>
             <div className="space-y-container-gap text-body text-brand-primaryText">
-              <div>
-                {addressLines.map((line) => (
-                  <p key={line} className="text-body text-brand-primaryText">
-                    {line}
-                  </p>
-                ))}
+              <div >
+                <a href="https://www.google.com/maps/search/Rabat%2C+Morocco" target="_blank" rel="noreferrer">
+                  {addressLines.map((line) => (
+                    <p key={line} className="text-body text-brand-primaryText">
+                      {line}
+                    </p>
+                  ))}
+                </a>
               </div>
-              <p className="text-body text-brand-primaryText">{phone}</p>
-              <a href={`mailto:${email}`} className="text-body text-brand-primaryText transition-colors hover:text-brand-secondaryText">
-                {email}
-              </a>
+              <p>
+                <a href={`tel:${phone}`} className="text-body text-brand-primaryText">{phone}</a>
+              </p>
+              <p>
+                <a href={`mailto:${email}`} className="text-body text-brand-primaryText transition-colors hover:text-brand-secondaryText">
+                  {email}
+                </a>
+              </p>
             </div>
           </div>
 
           {/* Social section */}
-          <div className="flex items-end justify-start gap-3 md:col-span-1 md:justify-end">
+          <div className="flex items-end justify-start gap-3 md:col-span-1 md:justify-end hidden">
             {socialLinks.map((social) => (
               <a
                 key={social.platform}

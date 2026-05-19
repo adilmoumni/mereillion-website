@@ -100,21 +100,21 @@ const MethodPageSection = () => {
         title="Concevoir les décisions avant d’engager l’exécution"
         subtitle="Un socle méthodologique structuré pour sécuriser les décisions techniques en amont de l’exécution."
         primaryAction={{ label: 'Télécharger la brochure', href: '#' }}
-        secondaryAction={{ label: 'Nous contacter', href: '/#contact' }}
-        imageSrc="/images/methode_page/2.webp"
+        secondaryAction={{ label: 'Nous contacter', href: '/contact' }}
+        imageSrc="/images/qualite_page/hero.webp"
         imageAlt="Structure verrière architecturale"
       />
 
       <SectionWrapper withSectionSpacing={false} className="pb-section pt-section">
         <div className="grid items-start gap-10 md:grid-cols-[1fr_1.02fr] md:gap-14 lg:gap-20">
           <div>
-            <h2 className="max-w-[15ch] text-[clamp(2.35rem,5vw,4.5rem)] font-medium leading-[1.04] text-brand-secondaryText lg:max-w-[12ch]">
+            <h2 className="max-w-[13ch] text-[clamp(2.2rem,5vw,4rem)] font-medium leading-[1.04] tracking-[-0.03em] text-brand-secondaryText lg:max-w-[18ch]">
               Une méthode orientée maîtrise des risques
             </h2>
           </div>
 
           <div>
-            <div className="max-w-[34ch] space-y-6 text-[clamp(1.3rem,1.9vw,2.15rem)] leading-[1.35] text-brand-secondaryText lg:max-w-[19ch] lg:space-y-8">
+            <div className=" space-y-6 text-[clamp(1.3rem,1.9vw,2.15rem)] !text-[#00232A] lg:space-y-8">
               <p>
                 Dans les projets complexes, le risque ne réside pas uniquement dans l&apos;exécution, mais dans
                 les décisions prises en amont.
@@ -125,7 +125,7 @@ const MethodPageSection = () => {
               </p>
             </div>
 
-            <p className="mt-10 max-w-[18ch] text-[clamp(2.15rem,4vw,4.2rem)] font-medium leading-[1.1] text-brand-secondaryText lg:max-w-[15ch]">
+            <p className="mt-8 max-w-[14ch] text-[clamp(2rem,4.2vw,3.125rem)] font-medium leading-[1.08] tracking-[-0.03em] text-[#00232A] md:mt-10 lg:max-w-[16ch]">
               La décision précède l&apos;achat.
             </p>
           </div>
@@ -134,7 +134,7 @@ const MethodPageSection = () => {
 
       <section className="w-full bg-gradient-to-r from-[#012f37] via-[#045a67] to-[#067480]">
         <div className="mx-auto w-full max-w-7xl px-container-gap py-14 md:py-16 lg:py-20">
-          <h2 className="max-w-[18ch] text-[clamp(2.4rem,5vw,5rem)] font-medium leading-[1.06] text-brand-background">
+          <h2 className=" text-[clamp(2.4rem,5vw,5rem)] font-medium leading-[1.06] text-brand-background w-full">
             Les quatre phases structurantes
           </h2>
         </div>
@@ -179,15 +179,7 @@ const MethodPageSection = () => {
                   </div>
                 </div>
 
-                <svg
-                  className="pointer-events-none absolute bottom-0 right-0 h-20 w-32 text-brand-background/25 md:h-28 md:w-48"
-                  viewBox="0 0 64 40"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M2 4h10l18 18V4h10v32H30L12 18v18H2V4Z" />
-                  <path d="M24 4h10l18 18V4h10v32H52L34 18v18H24V4Z" />
-                </svg>
+                <img src="/images/logo.svg" alt="" className='pointer-events-none absolute bottom-0 right-0 h-20 w-32 text-brand-background/25 md:h-28 md:w-48' />
               </div>
             </div>
           </div>
@@ -211,13 +203,13 @@ const MethodPageSection = () => {
       <SectionWrapper withSectionSpacing={false} className="pb-section pt-section">
         <div className="grid items-start gap-10 md:grid-cols-[1fr_1.02fr] md:gap-14 lg:gap-20">
           <div>
-            <h2 className="max-w-[15ch] text-[clamp(2.35rem,4.8vw,4.4rem)] font-medium leading-[1.04] text-brand-secondaryText lg:max-w-[12ch]">
+            <h2 className="max-w-[20ch]  text-[34px] lg:text-[54px] font-medium leading-[1.04] text-brand-secondaryText lg:max-w-[30ch]">
               Appliquée à chaque famille de systèmes
             </h2>
           </div>
 
           <div>
-            <p className="max-w-[36ch] text-[clamp(1.05rem,1.45vw,1.55rem)] leading-[1.45] text-brand-secondaryText/55 lg:max-w-[28ch]">
+            <p className="max-w-[36ch] text-[clamp(1.05rem,1.45vw,1.55rem)] leading-[1.45] text-brand-secondaryText/55 lg:max-w-[40ch]">
               Notre méthode s&apos;applique à l&apos;ensemble des familles de solutions techniques traitées par Marelion.
             </p>
 
@@ -262,11 +254,11 @@ const MethodPageSection = () => {
 
           <div className="flex min-h-full flex-col justify-between">
             <div>
-              <h2 className="max-w-[16ch] text-[clamp(2.35rem,4.8vw,4.4rem)] font-medium leading-[1.04] text-brand-secondaryText lg:max-w-[14ch]">
+              <h2 className="max-w-[16ch] text-[34px] font-medium leading-[1.04] text-brand-secondaryText md:text-[48px] lg:text-[54px] lg:max-w-[40ch]">
                 Encadrée par des processus qualité formalisés
               </h2>
 
-              <p className="mt-4 max-w-[34ch] text-[clamp(1.05rem,1.35vw,1.45rem)] leading-[1.45] text-brand-secondaryText/55 lg:max-w-[28ch]">
+              <p className="mt-4 max-w-[34ch] text-[clamp(1.05rem,1.35vw,1.45rem)] leading-[1.45] text-brand-secondaryText/55 lg:max-w-[40ch]">
                 Chaque étape méthodologique s&apos;inscrit dans un cadre qualité documenté et vérifié.
               </p>
             </div>
@@ -288,7 +280,7 @@ const MethodPageSection = () => {
         title="Échanger sur un périmètre technique"
         body="Pour toute demande relative à un projet multi-systèmes ou à une exigence technique spécifique."
         actionLabel="Nous contacter"
-        actionHref="/#contact"
+        actionHref="/contact"
         imageSrc="/images/cta_banner_bg/pic.webp"
         imageAlt="Cuisine et aménagement intérieur"
       />

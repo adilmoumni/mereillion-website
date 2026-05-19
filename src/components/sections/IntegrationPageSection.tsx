@@ -67,7 +67,7 @@ const IntegrationPageSection = () => {
         title="Une continuité contractuelle et technique sans rupture"
         subtitle="De la sélection des fournisseurs à l’intégration sur site, sans rupture de la chaîne de valeur."
         primaryAction={{ label: 'Télécharger la brochure', href: '#' }}
-        secondaryAction={{ label: 'Nous contacter', href: '/#contact' }}
+        secondaryAction={{ label: 'Nous contacter', href: '/contact' }}
         imageSrc="/images/integration_page/picture.webp"
         imageAlt="Espace d’intégration technique"
       />
@@ -75,7 +75,7 @@ const IntegrationPageSection = () => {
       <SectionWrapper withSectionSpacing={false} className="pb-section pt-section">
         <div className="grid items-start gap-10 md:grid-cols-[1fr_1.02fr] md:gap-14 lg:gap-20">
           <div>
-            <h2 className="max-w-[14ch] text-[clamp(2.35rem,4.8vw,4.5rem)] font-medium leading-[1.04] text-brand-secondaryText lg:max-w-[9ch]">
+            <h2 className="max-w-[13ch] text-[clamp(2.15rem,4.8vw,4.5rem)] font-medium leading-[1.04] tracking-[-0.03em] text-brand-secondaryText lg:max-w-[9ch]">
               Une chaîne maîtrisée de bout en bout
             </h2>
           </div>
@@ -91,7 +91,7 @@ const IntegrationPageSection = () => {
               </p>
             </div>
 
-            <p className="mt-10 max-w-[18ch] text-[clamp(2.15rem,4vw,4.2rem)] font-medium leading-[1.1] text-brand-secondaryText lg:max-w-[13ch]">
+            <p className="mt-8 max-w-[15ch] text-[clamp(2rem,4.2vw,4.2rem)] font-medium leading-[1.08] tracking-[-0.03em] text-brand-secondaryText md:mt-10 lg:max-w-[13ch]">
               Chaque maillon est contrôlé. Chaque décision est documentée.
             </p>
           </div>
@@ -107,7 +107,7 @@ const IntegrationPageSection = () => {
       <SectionWrapper withSectionSpacing={false} className="pb-section pt-section">
         <div className="grid items-start gap-10 md:grid-cols-[1fr_1.02fr] md:gap-14 lg:gap-20">
           <div>
-            <h2 className="max-w-[15ch] text-[clamp(2.35rem,4.8vw,4.4rem)] font-medium leading-[1.04] text-brand-secondaryText lg:max-w-[10ch]">
+            <h2 className="max-w-[13ch] text-[clamp(2.05rem,4.8vw,3.125rem)] font-medium leading-[1.04] tracking-[-0.03em] text-brand-secondaryText lg:max-w-[18ch]">
               Encadré par un cadre qualité formalisé
             </h2>
           </div>
@@ -146,7 +146,7 @@ const IntegrationPageSection = () => {
         title="Échanger sur un périmètre technique"
         body="Pour toute demande relative à un projet multi-systèmes ou à une exigence technique spécifique."
         actionLabel="Nous contacter"
-        actionHref="/#contact"
+        actionHref="/contact"
         imageSrc="/images/cta_banner_bg/pic.webp"
         imageAlt="Cuisine et aménagement intérieur"
       />

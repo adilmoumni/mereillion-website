@@ -27,7 +27,7 @@ const SplitContactCtaSection = ({
 }: SplitContactCtaSectionProps) => {
   return (
     <section className={`mt-section w-full overflow-hidden ${className}`}>
-      <div className="grid min-h-[460px] grid-cols-1 md:grid-cols-2">
+      <div className="grid min-h-[550px] grid-cols-1 md:grid-cols-2">
         <div className="relative overflow-hidden">
           <Image
             src={patternSrc}
@@ -39,12 +39,12 @@ const SplitContactCtaSection = ({
           />
 
           <div className="relative z-10 flex h-full items-center px-6 py-10 sm:px-10 md:py-14 lg:px-14">
-            <div className="max-w-[24ch] text-brand-background md:max-w-[20ch]">
+            <div className="max-w-[24ch] text-brand-background md:max-w-[50ch]">
               <h2 className="text-[clamp(1.85rem,3.2vw,3.25rem)] font-medium leading-[1.08]">
                 {title}
               </h2>
 
-              <p className="mt-4 max-w-[34ch] text-[clamp(0.98rem,1vw,1.08rem)] leading-[1.55] text-brand-background/85">
+              <p className="mt-4 max-w-[50ch] text-[clamp(0.98rem,1vw,1.08rem)] leading-[1.55] text-brand-background/85">
                 {body}
               </p>
 

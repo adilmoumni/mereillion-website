@@ -12,7 +12,7 @@ type Interlocutor = {
 
 const interlocutors: Interlocutor[] = [
   {
-    title: 'Architectes & Prescripteurs',
+    title: 'Concepteurs et Prescripteurs',
     image: '/images/home_page/home_pics/5.webp',
     alt: 'Façade architecturale contemporaine',
   },
@@ -33,7 +33,7 @@ const interlocutors: Interlocutor[] = [
   },
   {
     title: 'Industriels',
-    image: '/images/home_page/home_pics/9.webp',
+    image: '/images/home_page/home_pics/9-1.webp',
     alt: 'Zone logistique industrielle',
   },
 ];
@@ -118,7 +118,7 @@ const InterlocutorsSliderSection = () => {
       <div
         ref={trackRef}
         onWheel={handleWheelScroll}
-        className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 pl-5 pr-6 scroll-smooth sm:pl-7 sm:pr-8 md:gap-6 md:pl-10 md:pr-10 lg:gap-7 lg:pl-14 lg:pr-14 xl:pl-20 xl:pr-20 [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 pl-5 pr-6 scroll-smooth scroll-pl-5 sm:pl-7 sm:pr-8 sm:scroll-pl-7 md:gap-6 md:pl-10 md:pr-10 md:scroll-pl-10 lg:gap-7 lg:pl-14 lg:pr-14 lg:scroll-pl-14 xl:pl-20 xl:pr-20 xl:scroll-pl-20 [&::-webkit-scrollbar]:hidden"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {interlocutors.map((item, index) => (
@@ -127,7 +127,7 @@ const InterlocutorsSliderSection = () => {
             ref={(element) => {
               cardRefs.current[index] = element;
             }}
-            className="group w-[84vw] min-w-[84vw] shrink-0 snap-start sm:w-[72vw] sm:min-w-[72vw] md:w-[58vw] md:min-w-[58vw] lg:w-[46vw] lg:min-w-[46vw] xl:w-[40vw] xl:min-w-[40vw]"
+            className="group w-[84vw] min-w-[84vw] shrink-0 snap-start first:ml-2 first:scroll-ml-2 sm:w-[72vw] sm:min-w-[72vw] sm:first:ml-3 sm:first:scroll-ml-3 md:w-[58vw] md:min-w-[58vw] md:first:ml-4 md:first:scroll-ml-4 lg:w-[46vw] lg:min-w-[46vw] lg:first:ml-5 lg:first:scroll-ml-5 xl:w-[40vw] xl:min-w-[40vw] xl:first:ml-6 xl:first:scroll-ml-6"
           >
             <div className="relative aspect-[4/2.9] overflow-hidden rounded-[2px]">
               <Image

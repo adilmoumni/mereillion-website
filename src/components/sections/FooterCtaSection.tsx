@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../common/Button';
+import Link from 'next/link';
 
 const FooterCtaSection = () => {
   return (
@@ -16,9 +16,12 @@ const FooterCtaSection = () => {
             </p>
 
             <div className="mt-card-gap">
-              <Button variant="light" size="lg" className="border-transparent shadow-lg">
+              <Link
+                href="/contact"
+                className="type-button inline-flex min-h-[52px] items-center justify-center rounded-full border border-transparent bg-brand-background px-8 py-3 text-brand-primaryText shadow-lg transition-colors hover:bg-brand-secondaryText hover:text-brand-background"
+              >
                 Nous contacter
-              </Button>
+              </Link>
             </div>
           </div>
         </div>

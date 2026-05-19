@@ -5,8 +5,8 @@ import Footer from "@/components/layout/Footer";
 import { manropeFont } from "./fonts";
 
 export const metadata: Metadata = {
-  title: "Mereillion",
-  description: "Mereillion Website",
+  title: "Marelion",
+  description: "Marelion Website",
 };
 
 export default function RootLayout({

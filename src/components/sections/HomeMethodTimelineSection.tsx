@@ -148,18 +148,18 @@ const HomeMethodTimelineSection = () => {
     <SectionWrapper withSectionSpacing={false} className="bg-brand-background pb-section pt-section">
       <div className="mx-auto max-w-4xl text-center">
         <h2 className="text-[clamp(2rem,3.4vw,3.55rem)] font-medium leading-[1.1] text-brand-secondaryText">
-          La méthode : concevoir avant d’exécuter
+          La méthode : Concevoir avant d’exécuter
         </h2>
 
-        <p className="mx-auto mt-4 max-w-[42ch] text-[clamp(1rem,1.02vw,1.08rem)] leading-[1.55] text-brand-secondaryText/55">
+        <p className="mx-auto mt-4 max-w-[50ch] text-[clamp(1rem,1.02vw,1.08rem)] leading-[1.55] text-brand-secondaryText/55 text-center">
           Notre méthode constitue un socle de sécurisation conçu pour les projets à forte exigence technique.
         </p>
       </div>
 
       <div ref={timelineRef} className="relative mt-10 md:mt-14">
-        <span className="absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 bg-brand-secondaryText/8 lg:block" />
+        <span className="absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 bg-brand-secondaryText/8 lg:block bg-white !w-[5px] rounded-full" />
         <span
-          className="absolute left-1/2 top-0 hidden w-[3px] -translate-x-1/2 rounded-full bg-brand-primaryText transition-[height] duration-200 ease-out lg:block"
+          className="absolute left-1/2 top-0 hidden w-[4px] -translate-x-1/2 rounded-full bg-brand-primaryText transition-[height] duration-200 ease-out lg:block"
           style={{ height: `${fillRatio * 100}%` }}
         />
 
@@ -167,11 +167,6 @@ const HomeMethodTimelineSection = () => {
           const isTextOnRight = index % 2 === 0;
           const isReached = index <= activeStepIndex;
           const isActive = index === activeStepIndex;
-          const toneClass = isActive
-            ? 'opacity-100'
-            : isReached
-              ? 'opacity-80'
-              : 'opacity-45';
 
           const textTitleClass = isActive
             ? 'text-brand-primaryText'
@@ -185,6 +180,18 @@ const HomeMethodTimelineSection = () => {
               ? 'text-brand-secondaryText/65'
               : 'text-brand-secondaryText/45';
 
+          const iconToneClass = isActive
+            ? 'text-brand-primaryText'
+            : isReached
+              ? 'text-brand-primaryText/72'
+              : 'text-brand-primaryText/42';
+
+          const numberToneClass = isActive
+            ? 'bg-brand-primaryText text-brand-background'
+            : isReached
+              ? 'bg-brand-primaryText/68 text-brand-background'
+              : 'bg-brand-primaryText/38 text-brand-background';
+
           return (
             <article
               key={step.id}
@@ -192,46 +199,62 @@ const HomeMethodTimelineSection = () => {
               ref={(element) => {
                 stepRefs.current[index] = element;
               }}
-              className={`relative py-7 transition-all duration-700 md:py-9 lg:py-10 ${toneClass} ${
+              className={`relative py-3 transition-all duration-700 md:py-4 lg:py-5 ${
                 isActive ? 'translate-y-0' : 'translate-y-1.5'
               }`}
             >
-              <div className="grid items-center gap-7 lg:grid-cols-2 lg:gap-16">
+              <div className="mb-4 grid items-center lg:mb-5 lg:grid-cols-2 lg:gap-8">
+                {isTextOnRight ? (
+                  <>
+                    <div className="hidden lg:block" />
+                    <div className="flex justify-center lg:justify-start lg:pl-6">
+                      <span
+                        className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-[1.05rem] font-medium leading-none transition-colors duration-500 md:h-11 md:w-11 ${numberToneClass}`}
+                      >
+                        {step.id}
+                      </span>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="flex justify-center lg:justify-end lg:pr-6">
+                      <span
+                        className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-[1.05rem] font-medium leading-none transition-colors duration-500 md:h-11 md:w-11 ${numberToneClass}`}
+                      >
+                        {step.id}
+                      </span>
+                    </div>
+                    <div className="hidden lg:block" />
+                  </>
+                )}
+              </div>
+
+              <div className="grid items-center gap-5 md:gap-7 lg:grid-cols-2 lg:gap-8">
                 <div
-                  className={`${
-                    isTextOnRight ? 'order-1' : 'order-2'
-                  } flex justify-center lg:min-h-[180px] lg:items-center`}
+                  className={`order-1 flex justify-center lg:min-h-[180px] lg:items-center ${
+                    isTextOnRight ? 'lg:order-1 lg:justify-end' : 'lg:order-2 lg:justify-start'
+                  }`}
                 >
                   <MethodIcon
                     type={step.icon}
-                    className={`h-[4.5rem] w-[4.5rem] transition-colors duration-700 md:h-20 md:w-20 ${
-                      isActive ? 'text-brand-primaryText' : 'text-brand-primaryText/58'
-                    }`}
+                    className={`h-[5.5rem] w-[5.5rem] transition-colors duration-700 md:h-[6.5rem] md:w-[6.5rem] lg:h-[7.5rem] lg:w-[7.5rem] ${iconToneClass}`}
                   />
                 </div>
 
                 <div
-                  className={`${
-                    isTextOnRight ? 'order-2 text-left lg:pl-6' : 'order-1 text-left lg:pr-6 lg:text-right'
+                  className={`order-2 text-center ${
+                    isTextOnRight
+                      ? 'lg:order-2 lg:text-left lg:pl-6'
+                      : 'lg:order-1 lg:text-right lg:pr-6'
                   }`}
                 >
-                  <span
-                    className={`inline-flex h-9 w-9 items-center justify-center rounded-full text-[1.05rem] font-medium leading-none transition-colors duration-500 ${
-                      isActive
-                        ? 'bg-brand-primaryText text-brand-background'
-                        : isReached
-                          ? 'bg-brand-primaryText/70 text-brand-background'
-                          : 'bg-brand-primaryText/26 text-brand-background/90'
-                    }`}
-                  >
-                    {step.id}
-                  </span>
-
-                  <h3 className={`mt-3 text-[clamp(1.35rem,1.9vw,2.1rem)] font-medium leading-[1.2] transition-colors duration-500 ${textTitleClass}`}>
+                  <h3 className={`text-[clamp(1.35rem,1.9vw,2.1rem)] font-medium leading-[1.2] transition-colors duration-500 ${textTitleClass}`}>
                     {step.title}
                   </h3>
 
-                  <p className={`mt-2.5 max-w-[38ch] text-[clamp(1rem,1.02vw,1.08rem)] leading-[1.55] transition-colors duration-500 ${textBodyClass} ${isTextOnRight ? '' : 'lg:ml-auto'}`}>
+                  <p className={`mx-auto mt-2.5 max-w-[38ch] text-[clamp(1rem,1.02vw,1.08rem)] leading-[1.55] transition-colors duration-500 ${textBodyClass} ${
+                    isTextOnRight ? 'lg:mx-0' : 'lg:ml-auto lg:mr-0'
+                  }`}>
                     {step.description}
                   </p>
                 </div>

@@ -12,7 +12,7 @@ const focusPillars = [
 const IntroSection = () => {
   return (
     <SectionWrapper className="bg-brand-background">
-      <h2 className="max-w-[14ch] text-[clamp(1.95rem,3.4vw,3.5rem)] font-medium leading-[1.1] text-brand-secondaryText lg:max-w-[11ch]">
+      <h2 className="w-full max-w-none text-[clamp(1.95rem,3.4vw,3.5rem)] font-medium leading-[1.1] text-brand-secondaryText lg:w-[55%]">
         Le point de convergence entre vision et réalité
       </h2>
 
@@ -27,7 +27,7 @@ const IntroSection = () => {
           />
         </div>
 
-        <div className="space-y-5 text-[clamp(1rem,1.04vw,1.12rem)] leading-[1.55] text-brand-secondaryText">
+        <div className="space-y-5 a leading-[1.55] text-[#00232A]">
           <p>
             La réussite d&apos;un projet ne repose pas uniquement sur sa conception structurelle, mais sur la cohérence absolue de l&apos;ensemble des systèmes qui le composent.
           </p>
@@ -40,17 +40,21 @@ const IntroSection = () => {
         </div>
       </div>
 
-      <div className="mt-10 grid grid-cols-1 justify-items-center gap-3 sm:grid-cols-2 sm:gap-4 lg:mt-12 lg:flex lg:items-center lg:justify-center lg:-space-x-2">
-        {focusPillars.map((pillar) => {
-          return (
-            <div
-              key={pillar.label}
-              className="flex h-[154px] w-[154px] items-center justify-center rounded-full border border-brand-secondaryText bg-brand-background text-center text-brand-secondaryText transition-all duration-300 hover:border-brand-primaryText hover:bg-brand-primaryText hover:text-brand-background md:h-[180px] md:w-[180px] lg:h-[210px] lg:w-[210px]"
-            >
-              <span className="max-w-[12ch] text-[clamp(0.95rem,1.08vw,1.2rem)] font-medium leading-[1.3]">{pillar.label}</span>
-            </div>
-          );
-        })}
+      <div className="mt-10 overflow-x-auto pb-2 md:mt-11 lg:mt-12">
+        <div className="mx-auto flex min-w-max items-center -space-x-3 px-1 sm:-space-x-4 sm:px-3 lg:-space-x-6 lg:px-0">
+          {focusPillars.map((pillar) => {
+            return (
+              <div
+                key={pillar.label}
+                className="group flex h-[154px] w-[154px] shrink-0 items-center justify-center rounded-full border border-brand-secondaryText bg-brand-background text-center text-brand-secondaryText transition-all duration-300 hover:border-brand-primaryText hover:bg-brand-primaryText hover:text-brand-background md:h-[180px] md:w-[180px] lg:h-[210px] lg:w-[210px]"
+              >
+                <span className="max-w-[12ch] text-[32px] font-normal leading-[1.18] text-[#00232A] transition-colors duration-300 group-hover:text-brand-background">
+                  {pillar.label}
+                </span>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </SectionWrapper>
   );

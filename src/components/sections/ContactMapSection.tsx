@@ -6,12 +6,12 @@ import SectionWrapper from '../common/SectionWrapper';
 const ContactMapSection = () => {
   return (
     <SectionWrapper id="map" withSectionSpacing={false} className="pb-section pt-section">
-      <h2 className="text-[clamp(2.35rem,4.8vw,4.4rem)] font-medium leading-[1.06] text-brand-secondaryText">
+      <h2 className="max-w-[12ch] text-[clamp(2.1rem,5vw,4.4rem)] font-medium leading-[1.06] tracking-[-0.03em] text-brand-secondaryText lg:max-w-none">
         Nous trouver sur Map
       </h2>
 
-      <div className="mt-8 overflow-hidden">
-        <div className="relative min-h-[360px] w-full md:min-h-[520px]">
+      <div className="mt-6 overflow-hidden md:mt-8">
+        <div className="relative min-h-[300px] w-full sm:min-h-[340px] md:min-h-[520px]">
           <iframe
             title="Carte de localisation Marélion à Rabat"
             src="https://maps.google.com/maps?q=Angle%20Av%20Al%20Alaouiyine%20et%20Av%20Al%20Mariniyine%2C%20Rabat&t=&z=13&ie=UTF8&iwloc=&output=embed"

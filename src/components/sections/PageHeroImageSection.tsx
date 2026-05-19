@@ -39,7 +39,7 @@ const PageHeroImageSection = ({
       containerClassName="max-w-none"
     >
       <div className="mx-auto max-w-7xl px-container-gap">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-5xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-primaryText/40 px-4 py-2 text-[0.92rem] font-medium text-brand-primaryText sm:px-5 sm:text-[0.98rem]">
             <span className="h-1.5 w-1.5 rounded-full bg-brand-primaryText" />
             {badgeLabel}

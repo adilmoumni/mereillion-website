@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useEffect, useRef, useState } from 'react';
 import SectionWrapper from '../common/SectionWrapper';
 
@@ -162,9 +161,26 @@ const StickyProcessTimelineSection = ({
                 >
                   {step.checklist.map((item) => (
                     <li key={item} className="flex items-start gap-2.5">
-                      <svg className="mt-1 h-5 w-5 shrink-0 md:h-6 md:w-6" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M3 12.5l4.2 4.2L12 11.9" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                        <path d="M8.8 12.5l4.2 4.2L21 8.8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="mt-0.5 h-5 w-5 shrink-0 md:h-6 md:w-6"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M3 12.5l4.2 4.2L12 11.9"
+                          stroke="currentColor"
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="M8.8 12.5l4.2 4.2L21 8.8"
+                          stroke="currentColor"
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                       <span>{item}</span>
                     </li>
