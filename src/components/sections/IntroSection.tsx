@@ -40,15 +40,15 @@ const IntroSection = () => {
         </div>
       </div>
 
-      <div className="mt-10 overflow-x-auto pb-2 md:mt-11 lg:mt-12">
-        <div className="mx-auto flex min-w-max items-center -space-x-3 px-1 sm:-space-x-4 sm:px-3 lg:-space-x-6 lg:px-0">
+      <div className="mt-10 pb-2 md:mt-11 lg:mt-12">
+        <div className="mx-auto flex max-w-[860px] flex-wrap items-center justify-center gap-x-2 gap-y-3 px-1 sm:px-3 md:gap-x-3 md:gap-y-4 lg:flex-nowrap lg:gap-x-0 lg:-space-x-6 lg:px-0">
           {focusPillars.map((pillar) => {
             return (
               <div
                 key={pillar.label}
-                className="group flex h-[154px] w-[154px] shrink-0 items-center justify-center rounded-full border border-brand-secondaryText bg-brand-background text-center text-brand-secondaryText transition-all duration-300 hover:border-brand-primaryText hover:bg-brand-primaryText hover:text-brand-background md:h-[180px] md:w-[180px] lg:h-[210px] lg:w-[210px]"
+                className="group flex aspect-square w-[min(44vw,156px)] shrink-0 items-center justify-center rounded-full border border-brand-secondaryText bg-brand-background text-center text-brand-secondaryText transition-all duration-300 hover:border-brand-primaryText hover:bg-brand-primaryText hover:text-brand-background sm:w-[168px] md:w-[184px] lg:w-[230px]"
               >
-                <span className="max-w-[12ch] text-[32px] font-normal leading-[1.18] text-[#00232A] transition-colors duration-300 group-hover:text-brand-background">
+                <span className="max-w-[11ch] px-3 text-[clamp(1.05rem,4.2vw,1.45rem)] font-normal leading-[1.12] text-[#00232A] transition-colors duration-300 group-hover:text-brand-background md:text-[1.6rem] lg:max-w-[12ch] lg:text-[1.875rem]">
                   {pillar.label}
                 </span>
               </div>
